@@ -687,12 +687,148 @@ html, body {
   }
 }
 
-@media (max-width: 900px) {
-  .slide-inner { padding: 0 32px; }
-  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-  .strategy-grid { grid-template-columns: 1fr; }
-  .why-grid { grid-template-columns: repeat(2, 1fr); }
-  .roadmap-grid { grid-template-columns: 1fr 1fr; }
+/* ===== RESPONSIVE: TABLET ===== */
+@media (max-width: 1024px) {
+  .slide-inner { padding: 0 36px; max-width: 100%; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .strategy-grid { grid-template-columns: 1fr; gap: 20px; }
+  .why-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .roadmap-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .backlink-grid { grid-template-columns: 1fr; }
+  .bar-chart { height: 150px; gap: 5px; }
+  .bar-label { font-size: 8px; }
+  .data-table th, .data-table td { padding: 8px 10px; font-size: 12px; }
+  .kpi-table th, .kpi-table td { padding: 10px 14px; font-size: 12px; }
+  .pos-series { flex-wrap: wrap; gap: 8px; }
+  .pos-bar-track { flex: 2; min-width: 120px; }
+  .contact-card { padding: 28px 24px; }
+  .strategy-number { font-size: 60px; }
+  .anchor-donut-wrap { flex-direction: column; align-items: flex-start; }
+  .nav-btn { width: 36px; height: 36px; font-size: 15px; }
+  #nav-prev { left: 10px; }
+  #nav-next { right: 10px; }
+}
+
+/* ===== RESPONSIVE: MOBILE ===== */
+@media (max-width: 640px) {
+  .slide {
+    align-items: flex-start;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .slide-inner {
+    padding: 80px 20px 40px;
+    max-width: 100%;
+  }
+  #slide-1 .slide-inner { padding-top: 100px; }
+  .slide-heading, .slide-heading-light { font-size: 22px; margin-bottom: 6px; }
+  .slide-subheading, .slide-subheading-light { font-size: 12px; margin-bottom: 20px; }
+  .cover-title { font-size: 32px; }
+  .cover-subtitle { font-size: 18px; margin-bottom: 24px; }
+  .cover-agency { font-size: 11px; margin-bottom: 20px; }
+  .cover-date { font-size: 11px; padding: 6px 14px; }
+  .cover-divider { margin-bottom: 20px; }
+  .heading-accent-line { margin-bottom: 8px; }
+
+  /* KPI grid */
+  .kpi-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .kpi-card { padding: 14px 12px; border-radius: 10px; }
+  .kpi-label { font-size: 9px; margin-bottom: 4px; }
+  .kpi-value { font-size: 20px; }
+
+  /* Charts */
+  .bar-chart-wrap { padding: 16px 12px 10px; border-radius: 12px; }
+  .bar-chart { height: 120px; gap: 3px; }
+  .bar-label { font-size: 7px; }
+  .bar-tooltip { font-size: 8px; padding: 3px 5px; }
+  .chart-growth-badge { font-size: 11px; padding: 4px 10px; }
+
+  /* Position chart */
+  .pos-chart-wrap { padding: 16px 12px; border-radius: 12px; }
+  .pos-series { flex-direction: column; align-items: stretch; gap: 6px; margin-bottom: 12px; }
+  .pos-label { font-size: 12px; }
+  .pos-bar-track { flex: unset; height: 28px; }
+  .pos-bar-fill { font-size: 11px; padding-left: 8px; }
+  .pos-growth-tag { font-size: 11px; align-self: flex-end; }
+  /* Stat boxes in slide 4 */
+  .stat-boxes-grid {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  /* Tables */
+  .table-wrap { border-radius: 10px; overflow-x: auto; }
+  .data-table { min-width: 480px; }
+  .data-table th { font-size: 9px; padding: 8px 8px; }
+  .data-table td { font-size: 11px; padding: 7px 8px; }
+  .page-url { font-size: 9px; padding: 2px 5px; }
+  .pos-badge { width: 24px; height: 24px; font-size: 10px; }
+
+  /* Competitor */
+  .comp-bar-track { height: 6px; }
+
+  /* Backlink */
+  .backlink-grid { grid-template-columns: 1fr; gap: 12px; }
+  .anchor-donut-wrap { flex-direction: column; gap: 12px; }
+  .warning-card { padding: 14px; }
+  .warning-item { font-size: 10px; padding: 5px 8px; }
+  .ref-domain-item { font-size: 11px; }
+
+  /* Strategy slides */
+  .strategy-grid { grid-template-columns: 1fr; gap: 16px; }
+  .strategy-number { font-size: 48px; }
+  .strategy-context-box { padding: 14px; margin-top: 10px; }
+  .context-text { font-size: 12px; }
+  .strategy-list li { font-size: 12px; padding: 8px 0; gap: 8px; }
+  .list-num { width: 20px; height: 20px; font-size: 10px; }
+  .highlight-box { padding: 10px 12px; font-size: 12px; margin-top: 10px; }
+
+  /* Roadmap */
+  .roadmap-grid { grid-template-columns: 1fr; gap: 10px; }
+  .roadmap-card { padding: 14px; border-radius: 10px; }
+  .roadmap-period { font-size: 10px; margin-bottom: 6px; }
+  .roadmap-items li { font-size: 11px; }
+
+  /* KPI Targets table */
+  .kpi-table-wrap { overflow-x: auto; }
+  .kpi-table { min-width: 440px; }
+  .kpi-table th { font-size: 9px; padding: 8px 10px; }
+  .kpi-table td { font-size: 11px; padding: 8px 10px; }
+
+  /* Why Inbound */
+  .why-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .why-card { padding: 16px 12px; border-radius: 10px; }
+  .why-icon { font-size: 24px; margin-bottom: 8px; }
+  .why-title { font-size: 12px; margin-bottom: 4px; }
+  .why-desc { font-size: 10px; }
+
+  /* Contact */
+  .contact-card { padding: 24px 20px; border-radius: 16px; }
+  .contact-logo { font-size: 22px; }
+  .contact-title { font-size: 24px; }
+  .contact-sub { font-size: 13px; margin-bottom: 24px; }
+  .contact-cta { padding: 12px 28px; font-size: 14px; }
+
+  /* Navigation */
+  .nav-btn { width: 32px; height: 32px; font-size: 14px; }
+  #nav-prev { left: 6px; }
+  #nav-next { right: 6px; }
+  #slide-counter { bottom: 12px; right: 16px; font-size: 11px; }
+
+  /* Geometric decorations - smaller on mobile */
+  .geo-circle, .geo-ring { transform: scale(0.5); }
+  #slide-1 .geo1 { bottom: -220px; right: -180px; }
+  #slide-1 .geo2 { top: -120px; left: -100px; }
+}
+
+/* ===== RESPONSIVE: VERY SMALL ===== */
+@media (max-width: 380px) {
+  .slide-inner { padding: 70px 14px 30px; }
+  .cover-title { font-size: 26px; }
+  .kpi-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .kpi-value { font-size: 18px; }
+  .bar-chart { height: 90px; }
 }
 </style>
 </head>
@@ -808,7 +944,7 @@ html, body {
           <div class="pos-growth-tag">+25%</div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;">
+      <div class="stat-boxes-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;">
         <div style="background:rgba(255,123,82,0.07);border:1px solid rgba(255,123,82,0.15);border-radius:10px;padding:16px;text-align:center;">
           <div style="font-size:24px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#FF7B52;">5,651</div>
           <div style="font-size:11px;color:#6b7280;margin-top:4px;">Güncel Top 3</div>
