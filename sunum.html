@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Stratejisi & Büyüme Planı - supplementler.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #10332F;
+  --accent: #FF7B52;
+  --bg-light: #FEFEF7;
+  --secondary-dark: #0D0A2C;
+  --accent-light: #FFE7D8;
+  --secondary-green: #254E49;
+  --white: #ffffff;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
+  --gray-400: #9ca3af;
+  --gray-600: #6b7280;
+  --gray-800: #1f2937;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  background: #000;
+}
+
+#progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 3px; background: var(--accent);
+  z-index: 1000; transition: width 0.4s ease;
+}
+
+#slide-counter {
+  position: fixed; bottom: 28px; right: 32px;
+  z-index: 1000;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.05em;
+}
+
+.nav-btn {
+  position: fixed; top: 50%; z-index: 1000;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(8px);
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  font-size: 18px;
+}
+.nav-btn:hover { background: rgba(255,123,82,0.25); border-color: var(--accent); color: var(--accent); }
+#nav-prev { left: 20px; }
+#nav-next { right: 20px; }
+
+#slides-container {
+  width: 100%; height: 100vh;
+  position: relative;
+}
+
+.slide {
+  position: absolute; inset: 0;
+  width: 100%; height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1), transform 0.55s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+  overflow: hidden;
+}
+.slide.active {
+  opacity: 1; transform: translateX(0);
+  pointer-events: all;
+}
+.slide.exit-left {
+  opacity: 0; transform: translateX(-60px);
+}
+
+.slide-inner {
+  width: 100%; max-width: 1200px;
+  padding: 0 60px;
+  position: relative; z-index: 2;
+}
+
+/* Geometric decorative shapes */
+.geo-circle {
+  position: absolute; border-radius: 50%;
+  opacity: 0.08;
+}
+.geo-ring {
+  position: absolute; border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0.1;
+}
+
+/* ===== SLIDE 1: COVER ===== */
+#slide-1 {
+  background: var(--primary);
+  flex-direction: column;
+}
+#slide-1 .geo1 {
+  width: 500px; height: 500px;
+  background: var(--accent);
+  bottom: -180px; right: -120px;
+}
+#slide-1 .geo2 {
+  width: 300px; height: 300px;
+  background: var(--accent-light);
+  top: -80px; left: -60px;
+}
+#slide-1 .geo3 {
+  width: 200px; height: 200px;
+  border: 2px solid var(--accent);
+  opacity: 0.15;
+  top: 60px; right: 160px;
+}
+.cover-agency {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+}
+.cover-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(38px, 5vw, 68px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+.cover-title span { color: var(--accent); }
+.cover-subtitle {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(20px, 2.5vw, 30px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 48px;
+}
+.cover-date {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 100px;
+  color: rgba(255,255,255,0.5);
+  font-size: 13px; letter-spacing: 0.08em;
+}
+.cover-divider {
+  width: 60px; height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-bottom: 32px;
+}
+
+/* ===== SLIDE 2: KPIs ===== */
+#slide-2 { background: var(--bg-light); }
+#slide-2 .geo1 {
+  width: 400px; height: 400px;
+  background: var(--primary);
+  top: -150px; right: -100px;
+  border-radius: 50%;
+  opacity: 0.05;
+}
+
+.slide-heading {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.slide-heading-light {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.slide-subheading {
+  font-size: 14px; color: var(--gray-600);
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+.slide-subheading-light {
+  font-size: 14px; color: rgba(255,255,255,0.55);
+  margin-bottom: 36px;
+  font-weight: 500;
+}
+.heading-accent-line {
+  width: 48px; height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.kpi-card {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 22px 20px;
+  border: 1px solid rgba(16,51,47,0.08);
+  box-shadow: 0 2px 12px rgba(16,51,47,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.kpi-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(16,51,47,0.1); }
+.kpi-label {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gray-600); margin-bottom: 8px;
+}
+.kpi-value {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+.kpi-value.accent { color: var(--accent); }
+.kpi-icon {
+  font-size: 20px; margin-bottom: 10px;
+}
+
+/* ===== SLIDE 3: Traffic Chart ===== */
+#slide-3 { background: var(--primary); }
+
+.bar-chart-wrap {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 28px 24px 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.bar-chart {
+  display: flex; align-items: flex-end;
+  gap: 8px; height: 180px;
+  margin-bottom: 12px;
+}
+.bar-col {
+  flex: 1; display: flex;
+  flex-direction: column; align-items: center;
+  gap: 6px; height: 100%;
+  justify-content: flex-end;
+}
+.bar {
+  width: 100%; border-radius: 5px 5px 0 0;
+  background: var(--accent);
+  position: relative;
+  min-height: 4px;
+  transition: opacity 0.2s;
+}
+.bar:hover { opacity: 0.82; }
+.bar-tooltip {
+  position: absolute; bottom: 100%; left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: var(--secondary-dark);
+  color: var(--white);
+  font-size: 9px; white-space: nowrap;
+  padding: 4px 7px; border-radius: 4px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+}
+.bar:hover .bar-tooltip { opacity: 1; }
+.bar-label {
+  font-size: 9px; color: rgba(255,255,255,0.45);
+  text-align: center; writing-mode: horizontal-tb;
+  letter-spacing: 0.02em;
+}
+.chart-growth-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,123,82,0.15);
+  border: 1px solid rgba(255,123,82,0.3);
+  color: var(--accent);
+  padding: 6px 14px; border-radius: 100px;
+  font-size: 13px; font-weight: 500;
+  margin-top: 16px;
+}
+
+/* ===== SLIDE 4: Keyword positions ===== */
+#slide-4 { background: var(--bg-light); }
+
+.pos-chart-wrap {
+  background: var(--white);
+  border-radius: 16px; padding: 28px 24px;
+  border: 1px solid rgba(16,51,47,0.08);
+  box-shadow: 0 2px 12px rgba(16,51,47,0.05);
+}
+.pos-series {
+  display: flex; align-items: center;
+  gap: 16px; margin-bottom: 20px;
+}
+.pos-legend-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.pos-label { font-size: 13px; color: var(--gray-600); flex: 1; }
+.pos-bar-track {
+  flex: 3; height: 36px;
+  background: var(--gray-100); border-radius: 8px;
+  overflow: hidden; position: relative;
+}
+.pos-bar-fill {
+  height: 100%; border-radius: 8px;
+  display: flex; align-items: center; padding-left: 12px;
+  font-size: 13px; font-weight: 600; color: var(--white);
+  position: relative;
+}
+.pos-bar-old {
+  position: absolute; top: 0; left: 0;
+  height: 100%; border-radius: 8px;
+  opacity: 0.35;
+}
+.pos-growth-tag {
+  font-size: 12px; font-weight: 600;
+  color: #22c55e;
+  background: rgba(34,197,94,0.1);
+  padding: 3px 10px; border-radius: 100px;
+  white-space: nowrap;
+}
+
+/* ===== TABLES (slides 5, 6, 7, 8) ===== */
+.data-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+.data-table th {
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1.5px solid rgba(16,51,47,0.12);
+  color: var(--gray-600);
+}
+.data-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(16,51,47,0.06);
+  color: var(--gray-800);
+  vertical-align: middle;
+}
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: rgba(255,123,82,0.04); }
+.data-table.dark th { color: rgba(255,255,255,0.45); border-bottom-color: rgba(255,255,255,0.1); }
+.data-table.dark td { color: rgba(255,255,255,0.8); border-bottom-color: rgba(255,255,255,0.06); }
+.data-table.dark tr:hover td { background: rgba(255,255,255,0.04); }
+
+.pos-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 50%;
+  font-weight: 700; font-size: 12px;
+}
+.pos-badge.p1 { background: rgba(34,197,94,0.15); color: #16a34a; }
+.pos-badge.p2 { background: rgba(255,123,82,0.15); color: var(--accent); }
+.pos-badge.p3 { background: rgba(234,179,8,0.15); color: #ca8a04; }
+.pos-badge.p4 { background: rgba(156,163,175,0.15); color: var(--gray-600); }
+
+.table-wrap {
+  background: var(--white);
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(16,51,47,0.08);
+  box-shadow: 0 2px 12px rgba(16,51,47,0.05);
+}
+.table-wrap.dark {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.page-url {
+  font-family: 'Inter', monospace;
+  font-size: 11px; color: var(--accent);
+  background: rgba(255,123,82,0.08);
+  padding: 2px 7px; border-radius: 4px;
+}
+.page-url.bilgi { color: #7c3aed; background: rgba(124,58,237,0.08); }
+
+/* ===== SLIDE 5 ===== */
+#slide-5 { background: var(--bg-light); }
+
+/* ===== SLIDE 6 ===== */
+#slide-6 { background: var(--primary); }
+#slide-6 .data-table th { color: rgba(255,255,255,0.5); border-bottom-color: rgba(255,255,255,0.1); }
+#slide-6 .data-table td { color: rgba(255,255,255,0.82); border-bottom-color: rgba(255,255,255,0.07); }
+#slide-6 .data-table tr:hover td { background: rgba(255,255,255,0.04); }
+
+/* ===== SLIDE 7: Competitors ===== */
+#slide-7 { background: var(--bg-light); }
+
+.comp-bar-wrap { margin: 6px 0; }
+.comp-bar-track {
+  height: 8px; background: var(--gray-100);
+  border-radius: 4px; overflow: hidden;
+  margin-top: 4px;
+}
+.comp-bar-fill { height: 100%; border-radius: 4px; }
+.comp-highlight td { background: rgba(255,123,82,0.06) !important; font-weight: 600; }
+.comp-highlight td:first-child { color: var(--accent) !important; }
+
+/* ===== SLIDE 8: Missed opportunities ===== */
+#slide-8 { background: var(--primary); }
+
+.potential-badge {
+  display: inline-block;
+  padding: 2px 10px; border-radius: 100px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.pot-high { background: rgba(255,123,82,0.2); color: var(--accent); }
+.pot-very-high { background: rgba(239,68,68,0.2); color: #ef4444; }
+.pot-medium { background: rgba(234,179,8,0.2); color: #d97706; }
+
+/* ===== SLIDE 9: Backlinks ===== */
+#slide-9 { background: var(--bg-light); }
+
+.backlink-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.warning-card {
+  background: rgba(239,68,68,0.06);
+  border: 1.5px solid rgba(239,68,68,0.25);
+  border-radius: 12px; padding: 18px;
+}
+.warning-title {
+  font-size: 13px; font-weight: 600; color: #dc2626;
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 7px;
+}
+.warning-item {
+  font-size: 12px; color: #7f1d1d;
+  padding: 7px 10px; margin-bottom: 6px;
+  background: rgba(239,68,68,0.08); border-radius: 6px;
+  font-family: monospace;
+}
+.warning-count {
+  font-size: 11px; color: #dc2626; font-weight: 600;
+}
+
+.anchor-donut-wrap {
+  display: flex; align-items: center; gap: 20px;
+}
+.anchor-legend { flex: 1; }
+.anchor-legend-item {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 8px; font-size: 12px; color: var(--gray-600);
+}
+.anchor-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+.ref-domains-list { margin-top: 10px; }
+.ref-domain-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 7px 0; border-bottom: 1px solid rgba(16,51,47,0.07);
+  font-size: 12px;
+}
+.dr-badge {
+  font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 4px;
+  background: var(--primary); color: var(--white);
+}
+
+/* ===== STRATEGY SLIDES (10-16) ===== */
+.strategy-slide-dark { background: var(--primary); }
+.strategy-slide-light { background: var(--bg-light); }
+
+.strategy-grid {
+  display: grid; grid-template-columns: 1fr 1.6fr;
+  gap: 32px; align-items: start;
+}
+.strategy-number {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 80px; font-weight: 800;
+  line-height: 1; opacity: 0.08;
+  color: var(--accent);
+  position: absolute; top: -16px; right: -10px;
+}
+.strategy-left { position: relative; }
+.strategy-context-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; padding: 18px;
+  margin-top: 16px;
+}
+.strategy-context-box.light {
+  background: rgba(16,51,47,0.04);
+  border-color: rgba(16,51,47,0.1);
+}
+.context-label {
+  font-size: 10px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--accent); margin-bottom: 8px;
+}
+.context-text {
+  font-size: 13px; line-height: 1.6;
+}
+.strategy-list { list-style: none; padding: 0; }
+.strategy-list li {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 13px; line-height: 1.5;
+}
+.strategy-list.light li { border-bottom-color: rgba(16,51,47,0.07); color: var(--gray-800); }
+.strategy-list li:last-child { border-bottom: none; }
+.list-num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--accent); color: var(--white);
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.highlight-box {
+  background: rgba(255,123,82,0.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 14px; margin-top: 16px;
+  font-size: 13px; line-height: 1.5;
+  color: var(--accent-light);
+}
+.highlight-box.light { color: var(--primary); background: rgba(255,123,82,0.08); }
+
+/* ===== SLIDE 17: ROADMAP ===== */
+#slide-17 { background: var(--primary); }
+
+.roadmap-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.roadmap-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 12px; padding: 18px;
+  position: relative; overflow: hidden;
+}
+.roadmap-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--accent);
+}
+.roadmap-period {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 10px;
+}
+.roadmap-items { list-style: none; padding: 0; }
+.roadmap-items li {
+  font-size: 12px; color: rgba(255,255,255,0.75);
+  padding: 4px 0;
+  display: flex; align-items: flex-start; gap: 7px;
+  line-height: 1.4;
+}
+.roadmap-items li::before {
+  content: '→';
+  color: var(--accent); flex-shrink: 0; font-size: 11px;
+  margin-top: 1px;
+}
+
+/* ===== SLIDE 18: KPI Targets ===== */
+#slide-18 { background: var(--bg-light); }
+
+.kpi-table-wrap {
+  background: var(--white);
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid rgba(16,51,47,0.08);
+  box-shadow: 0 2px 12px rgba(16,51,47,0.05);
+}
+.kpi-table { width: 100%; border-collapse: collapse; }
+.kpi-table th {
+  padding: 12px 18px; text-align: left;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--white);
+}
+.kpi-table th:first-child { background: var(--primary); }
+.kpi-table th.col-current { background: var(--secondary-green); }
+.kpi-table th.col-6m { background: var(--accent); }
+.kpi-table th.col-12m { background: var(--secondary-dark); }
+.kpi-table td {
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba(16,51,47,0.06);
+  font-size: 13px; color: var(--gray-800);
+}
+.kpi-table tr:last-child td { border-bottom: none; }
+.kpi-table tr:hover td { background: rgba(255,123,82,0.03); }
+.kpi-table td:first-child { font-weight: 600; color: var(--primary); }
+.kpi-table td.col-current { color: var(--secondary-green); font-weight: 600; }
+.kpi-table td.col-6m { color: var(--accent); font-weight: 600; }
+.kpi-table td.col-12m { color: var(--secondary-dark); font-weight: 700; }
+
+/* ===== SLIDE 19: Why Inbound ===== */
+#slide-19 { background: var(--primary); }
+
+.why-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 14px; margin-top: 8px;
+}
+.why-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 14px; padding: 24px 16px;
+  text-align: center;
+  transition: transform 0.2s, background 0.2s;
+}
+.why-card:hover { transform: translateY(-4px); background: rgba(255,123,82,0.1); }
+.why-icon { font-size: 32px; margin-bottom: 12px; }
+.why-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px; font-weight: 600;
+  color: var(--white); margin-bottom: 8px;
+}
+.why-desc { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+/* ===== SLIDE 20: Contact ===== */
+#slide-20 { background: var(--primary); }
+#slide-20 .geo1 {
+  width: 600px; height: 600px;
+  background: var(--accent);
+  bottom: -250px; right: -150px;
+  opacity: 0.07;
+}
+.contact-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px; padding: 40px;
+  text-align: center; max-width: 520px; margin: 0 auto;
+}
+.contact-logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 28px; font-weight: 800;
+  color: var(--accent); margin-bottom: 6px;
+}
+.contact-tagline {
+  font-size: 13px; color: rgba(255,255,255,0.4);
+  margin-bottom: 32px;
+}
+.contact-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 32px; font-weight: 800;
+  color: var(--white); margin-bottom: 8px;
+}
+.contact-sub {
+  font-size: 15px; color: rgba(255,255,255,0.6);
+  margin-bottom: 32px;
+}
+.contact-cta {
+  display: inline-block;
+  background: var(--accent); color: var(--white);
+  padding: 14px 36px; border-radius: 100px;
+  font-weight: 600; font-size: 15px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.contact-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,123,82,0.4); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.slide.active .animate-1 { animation: fadeUp 0.5s 0.05s both; }
+.slide.active .animate-2 { animation: fadeUp 0.5s 0.15s both; }
+.slide.active .animate-3 { animation: fadeUp 0.5s 0.25s both; }
+.slide.active .animate-4 { animation: fadeUp 0.5s 0.35s both; }
+.slide.active .animate-5 { animation: fadeUp 0.5s 0.45s both; }
+
+/* ===== PRINT ===== */
+@media print {
+  html, body { overflow: visible; height: auto; }
+  #progress-bar, .nav-btn, #slide-counter { display: none; }
+  #slides-container { height: auto; position: static; }
+  .slide {
+    position: relative; opacity: 1; transform: none;
+    pointer-events: all; page-break-after: always;
+    height: 100vh; display: flex;
+  }
+}
+
+@media (max-width: 900px) {
+  .slide-inner { padding: 0 32px; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .strategy-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .roadmap-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress-bar" style="width:5%"></div>
+<div id="slide-counter">1 / 20</div>
+<button class="nav-btn" id="nav-prev" aria-label="Önceki slayt">&#8592;</button>
+<button class="nav-btn" id="nav-next" aria-label="Sonraki slayt">&#8594;</button>
+
+<div id="slides-container">
+
+<!-- ==================== SLIDE 1: COVER ==================== -->
+<section class="slide active" id="slide-1" data-slide="1">
+  <div class="geo-circle geo1"></div>
+  <div class="geo-circle geo2"></div>
+  <div class="geo-ring geo3" style="border-radius:50%;width:200px;height:200px;border:2px solid #FF7B52;opacity:.12;top:60px;right:160px;position:absolute;"></div>
+  <div class="slide-inner" style="max-width:900px;">
+    <div class="animate-1 cover-agency">Inbound &nbsp;·&nbsp; SEO Ajansı</div>
+    <div class="cover-divider animate-2"></div>
+    <h1 class="cover-title animate-2">SEO Stratejisi &<br><span>Büyüme Planı</span></h1>
+    <div class="cover-subtitle animate-3">supplementler.com</div>
+    <div class="animate-4 cover-date">Şubat 2026</div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 2: MEVCUT DURUM ==================== -->
+<section class="slide" id="slide-2" data-slide="2">
+  <div class="geo-circle geo1" style="background:#10332F;width:400px;height:400px;top:-150px;right:-100px;position:absolute;opacity:.04;border-radius:50%;"></div>
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading animate-1">Mevcut Durum Özeti</h2>
+    <p class="slide-subheading animate-2">supplementler.com · Ahrefs verileri, Şubat 2026</p>
+    <div class="kpi-grid animate-3">
+      <div class="kpi-card">
+        <div class="kpi-label">Domain Rating</div>
+        <div class="kpi-value">52</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Organik Anahtar Kelime</div>
+        <div class="kpi-value">19,065</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Top 3 Pozisyon</div>
+        <div class="kpi-value accent">4,848</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Aylık Organik Trafik</div>
+        <div class="kpi-value">386,402</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Trafik Değeri</div>
+        <div class="kpi-value accent">$48,440<span style="font-size:14px;font-weight:500;color:#6b7280">/ay</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Canlı Backlink</div>
+        <div class="kpi-value">347,603</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Referring Domain</div>
+        <div class="kpi-value">2,215</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Ücretli Trafik</div>
+        <div class="kpi-value">45,257</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 3: TRAFIK TRENDI ==================== -->
+<section class="slide" id="slide-3" data-slide="3">
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading-light animate-1">Organik Trafik Trendi</h2>
+    <p class="slide-subheading-light animate-2">Son 13 Ay · Şubat 2025 – Şubat 2026</p>
+    <div class="bar-chart-wrap animate-3">
+      <div class="bar-chart" id="traffic-bar-chart"></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:10px;">
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);">* Veriler Ahrefs organik trafik tahminine dayanmaktadır</div>
+        <div class="chart-growth-badge">+35% YoY Büyüme Trendi &nbsp;↑</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 4: KELIME POZISYON DAGILIMI ==================== -->
+<section class="slide" id="slide-4" data-slide="4">
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading animate-1">Anahtar Kelime Pozisyon Dağılımı</h2>
+    <p class="slide-subheading animate-2">Pozisyon geçmişi · Büyüme analizi</p>
+    <div class="pos-chart-wrap animate-3">
+      <div style="margin-bottom:28px;">
+        <div class="pos-series">
+          <div class="pos-legend-dot" style="background:#FF7B52;"></div>
+          <div class="pos-label" style="color:#1f2937;font-weight:500;">Top 3 Pozisyon</div>
+          <div class="pos-bar-track">
+            <div class="pos-bar-fill" style="width:75%;background:#FF7B52;justify-content:flex-end;padding-right:10px;">
+              <span style="color:rgba(0,0,0,0.5);font-size:11px;">4,239 → 5,651</span>
+            </div>
+          </div>
+          <div class="pos-growth-tag">+33%</div>
+        </div>
+        <div class="pos-series">
+          <div class="pos-legend-dot" style="background:#10332F;"></div>
+          <div class="pos-label" style="color:#1f2937;font-weight:500;">Top 4–10 Pozisyon</div>
+          <div class="pos-bar-track">
+            <div class="pos-bar-fill" style="width:62%;background:#10332F;justify-content:flex-end;padding-right:10px;">
+              <span style="color:rgba(255,255,255,0.6);font-size:11px;">5,615 → 7,046</span>
+            </div>
+          </div>
+          <div class="pos-growth-tag">+25%</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;">
+        <div style="background:rgba(255,123,82,0.07);border:1px solid rgba(255,123,82,0.15);border-radius:10px;padding:16px;text-align:center;">
+          <div style="font-size:24px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#FF7B52;">5,651</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:4px;">Güncel Top 3</div>
+        </div>
+        <div style="background:rgba(16,51,47,0.06);border:1px solid rgba(16,51,47,0.1);border-radius:10px;padding:16px;text-align:center;">
+          <div style="font-size:24px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#10332F;">7,046</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:4px;">Güncel 4-10</div>
+        </div>
+        <div style="background:rgba(34,197,94,0.07);border:1px solid rgba(34,197,94,0.15);border-radius:10px;padding:16px;text-align:center;">
+          <div style="font-size:24px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#16a34a;">12,697</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:4px;">Top 10 Toplam</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 5: TOP KEYWORDS ==================== -->
+<section class="slide" id="slide-5" data-slide="5">
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading animate-1">En Çok Trafik Alan Anahtar Kelimeler</h2>
+    <p class="slide-subheading animate-2">Organik trafik katkısına göre sıralanmış</p>
+    <div class="table-wrap animate-3">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Anahtar Kelime</th>
+            <th>Pozisyon</th>
+            <th>Aylık Arama</th>
+            <th>Trafik</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>supplementler</strong></td><td><span class="pos-badge p1">1</span></td><td>95,000</td><td><strong>91,604</strong></td></tr>
+          <tr><td>protein tozu</td><td><span class="pos-badge p3">3</span></td><td>79,000</td><td>11,626</td></tr>
+          <tr><td>kreatin</td><td><span class="pos-badge p3">3</span></td><td>61,000</td><td>3,480</td></tr>
+          <tr><td>whey protein</td><td><span class="pos-badge p2">2</span></td><td>24,000</td><td>4,040</td></tr>
+          <tr><td>kreatin monohidrat</td><td><span class="pos-badge p1">1</span></td><td>12,000</td><td>3,303</td></tr>
+          <tr><td>magnezyum takviyesi</td><td><span class="pos-badge p4">4</span></td><td>25,000</td><td>2,102</td></tr>
+          <tr><td>pre workout</td><td><span class="pos-badge p2">2</span></td><td>16,000</td><td>2,172</td></tr>
+          <tr><td>gainer</td><td><span class="pos-badge p2">2</span></td><td>19,000</td><td>2,339</td></tr>
+          <tr><td>glukozamin</td><td><span class="pos-badge p2">2</span></td><td>15,000</td><td>2,024</td></tr>
+          <tr><td>l carnitine</td><td><span class="pos-badge p3">3</span></td><td>13,000</td><td>1,292</td></tr>
+          <tr><td>bcaa ne işe yarar</td><td><span class="pos-badge p3">3</span></td><td>12,000</td><td>1,858</td></tr>
+          <tr><td>berberin nedir</td><td><span class="pos-badge p3">3</span></td><td>14,000</td><td>1,676</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 6: TOP PAGES ==================== -->
+<section class="slide" id="slide-6" data-slide="6">
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading-light animate-1">En İyi Performans Gösteren Sayfalar</h2>
+    <p class="slide-subheading-light animate-2">Organik trafik hacmine göre sıralanmış · supplementler.com</p>
+    <div class="table-wrap dark animate-3">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="color:rgba(255,255,255,0.5);">Sayfa</th>
+            <th style="color:rgba(255,255,255,0.5);">Trafik</th>
+            <th style="color:rgba(255,255,255,0.5);">Top Anahtar Kelime</th>
+            <th style="color:rgba(255,255,255,0.5);">Kelime Sayısı</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="page-url">/ (Ana Sayfa)</span></td><td style="color:#FF7B52;font-weight:700;">114,273</td><td style="color:rgba(255,255,255,0.7);">supplementler (95K)</td><td style="color:rgba(255,255,255,0.5);">1,117</td></tr>
+          <tr><td><span class="page-url">/c/protein-tozu</span></td><td style="color:#FF7B52;font-weight:600;">16,338</td><td style="color:rgba(255,255,255,0.7);">protein tozu (79K)</td><td style="color:rgba(255,255,255,0.5);">168</td></tr>
+          <tr><td><span class="page-url">/c/whey-protein</span></td><td style="color:rgba(255,255,255,0.85);font-weight:600;">11,339</td><td style="color:rgba(255,255,255,0.7);">whey protein (24K)</td><td style="color:rgba(255,255,255,0.5);">800</td></tr>
+          <tr><td><span class="page-url">/c/kreatin-monohidrat</span></td><td style="color:rgba(255,255,255,0.85);font-weight:600;">9,375</td><td style="color:rgba(255,255,255,0.7);">kreatin monohidrat (12K)</td><td style="color:rgba(255,255,255,0.5);">118</td></tr>
+          <tr><td><span class="page-url">/c/kreatin</span></td><td style="color:rgba(255,255,255,0.85);font-weight:600;">7,390</td><td style="color:rgba(255,255,255,0.7);">kreatin (61K)</td><td style="color:rgba(255,255,255,0.5);">141</td></tr>
+          <tr><td><span class="page-url">/c/arjinin</span></td><td style="color:rgba(255,255,255,0.75);">5,652</td><td style="color:rgba(255,255,255,0.7);">arjinin (8.1K)</td><td style="color:rgba(255,255,255,0.5);">67</td></tr>
+          <tr><td><span class="page-url">/c/magnezyum</span></td><td style="color:rgba(255,255,255,0.75);">4,915</td><td style="color:rgba(255,255,255,0.7);">magnezyum takviyesi (25K)</td><td style="color:rgba(255,255,255,0.5);">111</td></tr>
+          <tr><td><span class="page-url">/c/kilo-aldirici</span></td><td style="color:rgba(255,255,255,0.75);">4,687</td><td style="color:rgba(255,255,255,0.7);">gainer (19K)</td><td style="color:rgba(255,255,255,0.5);">184</td></tr>
+          <tr><td><span class="page-url bilgi">/bilgi-bankasi/kenevir-tohumu-yagi</span></td><td style="color:rgba(255,255,255,0.75);">3,577</td><td style="color:rgba(255,255,255,0.7);">kenevir tohumu yağı (5.7K)</td><td style="color:rgba(255,255,255,0.5);">40</td></tr>
+          <tr><td><span class="page-url bilgi">/bilgi-bankasi/bcaa-nedir</span></td><td style="color:rgba(255,255,255,0.75);">3,505</td><td style="color:rgba(255,255,255,0.7);">bcaa ne işe yarar (12K)</td><td style="color:rgba(255,255,255,0.5);">103</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:16px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,0.45);"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#FF7B52;opacity:0.7;"></span> Kategori Sayfaları</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:rgba(255,255,255,0.45);"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#7c3aed;opacity:0.7;"></span> Bilgi Bankası Sayfaları</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 7: RAKİP ANALİZİ ==================== -->
+<section class="slide" id="slide-7" data-slide="7">
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading animate-1">Rakip Analizi</h2>
+    <p class="slide-subheading animate-2">Organik trafik ve anahtar kelime karşılaştırması</p>
+    <div class="table-wrap animate-3">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Ortak Kelime</th>
+            <th>Toplam Kelime</th>
+            <th>Aylık Trafik</th>
+            <th>Trafik Payı</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="comp-highlight">
+            <td><strong style="color:#FF7B52;">supplementler.com</strong></td>
+            <td>—</td>
+            <td>19,065</td>
+            <td><strong>386,402</strong></td>
+            <td><div class="comp-bar-wrap"><div class="comp-bar-track"><div class="comp-bar-fill" style="width:20%;background:#FF7B52;"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>macfit.com</td>
+            <td>5,307</td>
+            <td>37,558</td>
+            <td>1,043,781</td>
+            <td><div class="comp-bar-wrap"><div class="comp-bar-track"><div class="comp-bar-fill" style="width:54%;background:#10332F;"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>decathlon.com.tr</td>
+            <td>3,494</td>
+            <td>46,121</td>
+            <td>1,841,021</td>
+            <td><div class="comp-bar-wrap"><div class="comp-bar-track"><div class="comp-bar-fill" style="width:96%;background:#10332F;"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>berkayturkkan.com</td>
+            <td>3,885</td>
+            <td>9,998</td>
+            <td>127,112</td>
+            <td><div class="comp-bar-wrap"><div class="comp-bar-track"><div class="comp-bar-fill" style="width:7%;background:#254E49;"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>bigjoy.com.tr</td>
+            <td>3,277</td>
+            <td>2,458</td>
+            <td>106,319</td>
+            <td><div class="comp-bar-wrap"><div class="comp-bar-track"><div class="comp-bar-fill" style="width:5.5%;background:#254E49;"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>agirsaglam.com</td>
+            <td>2,758</td>
+            <td>7,327</td>
+            <td>89,315</td>
+            <td><div class="comp-bar-wrap"><div class="comp-bar-track"><div class="comp-bar-fill" style="width:4.6%;background:#254E49;"></div></div></div></td>
+          </tr>
+          <tr>
+            <td>hardlinenutrition.com</td>
+            <td>1,770</td>
+            <td>970</td>
+            <td>62,831</td>
+            <td><div class="comp-bar-wrap"><div class="comp-bar-track"><div class="comp-bar-fill" style="width:3.2%;background:#9ca3af;"></div></div></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 8: KAÇIRILAN FIRSATLAR ==================== -->
+<section class="slide" id="slide-8" data-slide="8">
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading-light animate-1">Kaçırılan Fırsatlar</h2>
+    <p class="slide-subheading-light animate-2">Yüksek hacimli anahtar kelimeler · Mevcut pozisyon: 4–20</p>
+    <div class="table-wrap dark animate-3">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="color:rgba(255,255,255,0.5);">Anahtar Kelime</th>
+            <th style="color:rgba(255,255,255,0.5);">Arama Hacmi</th>
+            <th style="color:rgba(255,255,255,0.5);">Mevcut Poz.</th>
+            <th style="color:rgba(255,255,255,0.5);">Potansiyel</th>
+            <th style="color:rgba(255,255,255,0.5);">Top 3 Trafik Est.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="color:rgba(255,255,255,0.85);">magnezyum glisinat</td><td style="color:rgba(255,255,255,0.7);">89,000</td><td><span class="pos-badge" style="background:rgba(156,163,175,0.15);color:#9ca3af;">14</span></td><td><span class="potential-badge pot-very-high">Çok Yüksek</span></td><td style="color:#22c55e;font-weight:600;">~13,350</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.85);">bromelain nedir</td><td style="color:rgba(255,255,255,0.7);">57,000</td><td><span class="pos-badge" style="background:rgba(156,163,175,0.15);color:#9ca3af;">20</span></td><td><span class="potential-badge pot-very-high">Çok Yüksek</span></td><td style="color:#22c55e;font-weight:600;">~8,550</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.85);">vitaminler</td><td style="color:rgba(255,255,255,0.7);">42,000</td><td><span class="pos-badge" style="background:rgba(156,163,175,0.15);color:#9ca3af;">17</span></td><td><span class="potential-badge pot-very-high">Çok Yüksek</span></td><td style="color:#22c55e;font-weight:600;">~6,300</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.85);">magnezyum sitrat</td><td style="color:rgba(255,255,255,0.7);">36,000</td><td><span class="pos-badge" style="background:rgba(156,163,175,0.15);color:#9ca3af;">14</span></td><td><span class="potential-badge pot-high">Yüksek</span></td><td style="color:#22c55e;font-weight:600;">~5,400</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.85);">kolajen</td><td style="color:rgba(255,255,255,0.7);">35,000</td><td><span class="pos-badge p4">8</span></td><td><span class="potential-badge pot-high">Yüksek</span></td><td style="color:#22c55e;font-weight:600;">~5,250</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.85);">fıstık ezmesi</td><td style="color:rgba(255,255,255,0.7);">27,000</td><td><span class="pos-badge p4">7</span></td><td><span class="potential-badge pot-medium">Orta</span></td><td style="color:#22c55e;font-weight:600;">~4,050</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.85);">magnezyum takviyesi</td><td style="color:rgba(255,255,255,0.7);">25,000</td><td><span class="pos-badge p4">4</span></td><td><span class="potential-badge pot-very-high">Çok Yüksek</span></td><td style="color:#22c55e;font-weight:600;">~3,750</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.85);">protein</td><td style="color:rgba(255,255,255,0.7);">23,000</td><td><span class="pos-badge p4">6</span></td><td><span class="potential-badge pot-very-high">Çok Yüksek</span></td><td style="color:#22c55e;font-weight:600;">~3,450</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.85);">balık yağı</td><td style="color:rgba(255,255,255,0.7);">22,000</td><td><span class="pos-badge" style="background:rgba(156,163,175,0.15);color:#9ca3af;">18</span></td><td><span class="potential-badge pot-high">Yüksek</span></td><td style="color:#22c55e;font-weight:600;">~3,300</td></tr>
+          <tr><td style="color:rgba(255,255,255,0.85);">spirulina</td><td style="color:rgba(255,255,255,0.7);">18,000</td><td><span class="pos-badge p4">6</span></td><td><span class="potential-badge pot-high">Yüksek</span></td><td style="color:#22c55e;font-weight:600;">~2,700</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 9: BACKLINK ==================== -->
+<section class="slide" id="slide-9" data-slide="9">
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading animate-1">Backlink Profili Analizi</h2>
+    <p class="slide-subheading animate-2">347,603 canlı backlink · 2,215 referring domain · DR 52</p>
+    <div class="backlink-grid animate-3">
+      <div>
+        <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:12px;padding:18px;margin-bottom:14px;box-shadow:0 2px 8px rgba(16,51,47,0.05);">
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:12px;">En Güçlü Kaynak Domainler</div>
+          <div class="ref-domains-list">
+            <div class="ref-domain-item"><span style="color:#1f2937;">google.com</span><span class="dr-badge">DR 99</span></div>
+            <div class="ref-domain-item"><span style="color:#1f2937;">youtube.com</span><span class="dr-badge">DR 99</span></div>
+            <div class="ref-domain-item"><span style="color:#1f2937;">apple.com</span><span class="dr-badge">DR 97</span></div>
+            <div class="ref-domain-item"><span style="color:#1f2937;">wikipedia.org</span><span class="dr-badge">DR 97</span></div>
+            <div class="ref-domain-item" style="border:none;padding-bottom:0;"><span style="color:#1f2937;">pinterest.com</span><span class="dr-badge">DR 96</span></div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:12px;padding:18px;box-shadow:0 2px 8px rgba(16,51,47,0.05);">
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:12px;">Anchor Metin Dağılımı</div>
+          <div class="anchor-legend">
+            <div class="anchor-legend-item"><div class="anchor-dot" style="background:#FF7B52;"></div>"supplement" — 4,185 domain</div>
+            <div class="anchor-legend-item"><div class="anchor-dot" style="background:#10332F;"></div>"supplementler.com" — 811 domain</div>
+            <div class="anchor-legend-item"><div class="anchor-dot" style="background:#254E49;"></div>"supplementler" — 388 domain</div>
+            <div class="anchor-legend-item"><div class="anchor-dot" style="background:#9ca3af;"></div>Boş anchor — 300 domain</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="warning-card">
+          <div class="warning-title">
+            <span style="font-size:18px;">⚠</span> Toksik / Spam Backlink Uyarısı
+          </div>
+          <p style="font-size:12px;color:#7f1d1d;margin-bottom:12px;line-height:1.5;">Profilde spam anchor metinler tespit edildi. Bu backlinkler Google tarafından negatif sinyal olarak değerlendirilebilir. Acil disavow işlemi önerilmektedir.</p>
+          <div class="warning-item">
+            "TELEGRAM @SEO_ANOMALY"
+            <div class="warning-count">204 referring domain</div>
+          </div>
+          <div class="warning-item">
+            "@SEO_CARTEL IN TELEGRAM"
+            <div class="warning-count">145 referring domain</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;">
+          <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(16,51,47,0.04);">
+            <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#10332F;">52</div>
+            <div style="font-size:10px;color:#6b7280;margin-top:3px;">Domain Rating</div>
+          </div>
+          <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(16,51,47,0.04);">
+            <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#FF7B52;">2,215</div>
+            <div style="font-size:10px;color:#6b7280;margin-top:3px;">Ref. Domain</div>
+          </div>
+          <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px;text-align:center;box-shadow:0 2px 8px rgba(16,51,47,0.04);">
+            <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#10332F;">347K</div>
+            <div style="font-size:10px;color:#6b7280;margin-top:3px;">Canlı Link</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 10: STRATEJİ 1 ==================== -->
+<section class="slide strategy-slide-dark" id="slide-10" data-slide="10">
+  <div class="slide-inner">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;" class="animate-1">
+      <div style="background:rgba(255,123,82,0.2);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;color:#FF7B52;letter-spacing:0.08em;">STRATEJİ 1 / 7</div>
+    </div>
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading-light animate-1">Kategori Sayfaları İçerik Optimizasyonu</h2>
+    <div class="strategy-grid animate-2">
+      <div class="strategy-left">
+        <div class="strategy-context-box">
+          <div class="context-label">Mevcut Durum</div>
+          <div class="context-text" style="color:rgba(255,255,255,0.7);">Kategori sayfaları statik meta açıklamalarla sınırlı. Dinamik içerik yok. Arama niyetine özel içerik eksik.</div>
+        </div>
+        <div class="highlight-box" style="margin-top:16px;">
+          <strong style="color:#FF7B52;">Örnek Hedef:</strong> "Protein Tozu" kategorisi (79K aylık arama, şu an 3. sıra)<br><br>Dinamik içerik + FAQ ile <strong>1. sıraya</strong> hedef.
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Önerimiz</div>
+        <ul class="strategy-list">
+          <li><div class="list-num">1</div><span style="color:rgba(255,255,255,0.8);">Her kategori için arama niyeti bazlı dinamik içerik blokları oluşturulacak</span></li>
+          <li><div class="list-num">2</div><span style="color:rgba(255,255,255,0.8);">Trend takip sistemi: Google Trends, sosyal medya ve araştırma kaynaklarından trend konular takip edilecek</span></li>
+          <li><div class="list-num">3</div><span style="color:rgba(255,255,255,0.8);">Mevsimsel içerik takvimi: Yaz: yağ yakıcılar · Kış: bağışıklık · Ocak: yeni yıl hedefleri</span></li>
+          <li><div class="list-num">4</div><span style="color:rgba(255,255,255,0.8);">Kullanıcı sorularına dayalı FAQ bölümleri (People Also Ask verisi ile)</span></li>
+          <li><div class="list-num">5</div><span style="color:rgba(255,255,255,0.8);">İçerik performans takibi: Her güncelleme sonrası CTR ve trafik ölçümü</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 11: STRATEJİ 2 ==================== -->
+<section class="slide strategy-slide-light" id="slide-11" data-slide="11">
+  <div class="slide-inner">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;" class="animate-1">
+      <div style="background:rgba(255,123,82,0.12);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;color:#FF7B52;letter-spacing:0.08em;">STRATEJİ 2 / 7</div>
+    </div>
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading animate-1">Title İyileştirme Stratejisi (CTR Odaklı)</h2>
+    <div class="strategy-grid animate-2">
+      <div class="strategy-left">
+        <div class="strategy-context-box light">
+          <div class="context-label">Mevcut Durum</div>
+          <div class="context-text" style="color:#4b5563;">Sabit title yapıları kullanılıyor. CTR potansiyeli kullanılmıyor. Arama niyeti bazlı farklılaşma yok.</div>
+        </div>
+        <div style="margin-top:16px;">
+          <div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;">Sayfa Tipi Şablonları</div>
+          <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px;font-size:12px;line-height:1.9;box-shadow:0 2px 8px rgba(16,51,47,0.05);">
+            <div><strong style="color:#FF7B52;">Ürün:</strong> <span style="color:#374151;">[Marka] [Ürün] - [USP] | Supplementler</span></div>
+            <div><strong style="color:#FF7B52;">Kategori:</strong> <span style="color:#374151;">[Kategori] 2026 - En İyi Seçenekler</span></div>
+            <div><strong style="color:#FF7B52;">Bilgi Bankası:</strong> <span style="color:#374151;">[Konu] Nedir? | Uzman Rehberi</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;color:#6b7280;margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Önerimiz</div>
+        <ul class="strategy-list light">
+          <li><div class="list-num">1</div><span style="color:#374151;">Sayfa tipi bazlı title şablonları: Ürün, Kategori, Bilgi Bankası için farklı yaklaşımlar</span></li>
+          <li><div class="list-num">2</div><span style="color:#374151;">A/B test süreci: GSC verileriyle CTR takibi, düşük CTR'li sayfalar önceliklendirilecek</span></li>
+          <li><div class="list-num">3</div><span style="color:#374151;">Arama niyeti sınıflandırması: Informational, transactional, commercial intent'e göre farklı title</span></li>
+          <li><div class="list-num">4</div><span style="color:#374151;">Rakip title analizi ve farklılaşma stratejisi</span></li>
+          <li><div class="list-num">5</div><span style="color:#374151;">Dinamik yıl/ay ekleme: Trend aramalarda güncellik sinyali</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 12: STRATEJİ 3 ==================== -->
+<section class="slide strategy-slide-dark" id="slide-12" data-slide="12">
+  <div class="slide-inner">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;" class="animate-1">
+      <div style="background:rgba(255,123,82,0.2);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;color:#FF7B52;letter-spacing:0.08em;">STRATEJİ 3 / 7</div>
+    </div>
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading-light animate-1">Blog Yapısının Kurulması & İçerik Stratejisi</h2>
+    <div class="strategy-grid animate-2">
+      <div class="strategy-left">
+        <div class="strategy-context-box">
+          <div class="context-label">Mevcut Durum</div>
+          <div class="context-text" style="color:rgba(255,255,255,0.7);">Bilgi bankası mevcut ama blog altyapısı kurulmamış. Mevcut sayfalar iyi trafik alıyor:</div>
+        </div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:6px;">
+          <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.7);">
+            <span>kenevir tohumu yağı</span><strong style="color:#FF7B52;">3,577</strong>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.7);">
+            <span>bcaa nedir</span><strong style="color:#FF7B52;">3,505</strong>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.7);">
+            <span>kreatin nasıl kullanılır</span><strong style="color:#FF7B52;">3,240</strong>
+          </div>
+          <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.7);">
+            <span>berberin nedir</span><strong style="color:#FF7B52;">2,585</strong>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Önerimiz</div>
+        <ul class="strategy-list">
+          <li><div class="list-num">1</div><span style="color:rgba(255,255,255,0.8);">Blog altyapısı: /blog/ dizini altında SEO-uyumlu yapı kurulacak</span></li>
+          <li><div class="list-num">2</div><span style="color:rgba(255,255,255,0.8);"><strong style="color:#FF7B52;">İçerik piramidi:</strong> Pillar (rehberler) → Cluster (alt konular) → Supporting (trend & soru)</span></li>
+          <li><div class="list-num">3</div><span style="color:rgba(255,255,255,0.8);">Arama niyeti mapping: Her içerik bir arama niyetine hizmet edecek</span></li>
+          <li><div class="list-num">4</div><span style="color:rgba(255,255,255,0.8);">İçerik takvimi: Aylık minimum 8–12 yeni içerik</span></li>
+          <li><div class="list-num">5</div><span style="color:rgba(255,255,255,0.8);">Mevcut bilgi bankası içeriklerinin blog'a entegrasyonu</span></li>
+          <li><div class="list-num">6</div><span style="color:rgba(255,255,255,0.8);">Internal linking: Bilgi bankası ↔ Kategori ↔ Ürün sayfaları arası bağlantılar</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 13: STRATEJİ 4 ==================== -->
+<section class="slide strategy-slide-light" id="slide-13" data-slide="13">
+  <div class="slide-inner">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;" class="animate-1">
+      <div style="background:rgba(255,123,82,0.12);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;color:#FF7B52;letter-spacing:0.08em;">STRATEJİ 4 / 7</div>
+    </div>
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading animate-1">Sağlık Beyanı Uyumlu İçerik Üretimi</h2>
+    <div class="strategy-grid animate-2">
+      <div class="strategy-left">
+        <div style="background:rgba(239,68,68,0.06);border:1.5px solid rgba(239,68,68,0.2);border-radius:12px;padding:16px;">
+          <div style="font-size:12px;font-weight:700;color:#dc2626;margin-bottom:8px;">Kritik Önem</div>
+          <div style="font-size:12px;color:#7f1d1d;line-height:1.6;">TGKB (Türk Gıda Kodeksi Beyanları) kapsamında içerik üretimi zorunludur. Uyumsuz içerikler yasal risk oluşturur.</div>
+        </div>
+        <div style="margin-top:14px;background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px;box-shadow:0 2px 8px rgba(16,51,47,0.04);">
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:#6b7280;margin-bottom:10px;">Bu Yaklaşımın Faydaları</div>
+          <div style="font-size:12px;color:#374151;line-height:1.7;">
+            Yasal uyumluluk saglanir<br>
+            E-E-A-T sinyali guclendirilir<br>
+            Google guven skoru artar<br>
+            Kullanici guveni kazanilir
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;color:#6b7280;margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Metodolojimiz</div>
+        <ul class="strategy-list light">
+          <li><div class="list-num">1</div><span style="color:#374151;">Beyan Veritabanı: Sağlık beyanı listesi oluşturulacak, her içerik kontrol edilecek</span></li>
+          <li><div class="list-num">2</div><span style="color:#374151;"><strong style="color:#FF7B52;">3 Aşamalı Kontrol:</strong> Yazım (uzman + beslenme danışmanı) → Hukuk review → Final onay</span></li>
+          <li><div class="list-num">3</div><span style="color:#374151;">Yasak ifadelerin blacklist'i tutulacak</span></li>
+          <li><div class="list-num">4</div><span style="color:#374151;">Beyanı olan ürünler için kullanılabilecek ifade şablonları hazırlanacak</span></li>
+          <li><div class="list-num">5</div><span style="color:#374151;">Periyodik audit: Mevcut içeriklerin de düzenli kontrol edilmesi</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 14: STRATEJİ 5 ==================== -->
+<section class="slide strategy-slide-dark" id="slide-14" data-slide="14">
+  <div class="slide-inner">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;" class="animate-1">
+      <div style="background:rgba(255,123,82,0.2);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;color:#FF7B52;letter-spacing:0.08em;">STRATEJİ 5 / 7</div>
+    </div>
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading-light animate-1">Backlink Stratejisi</h2>
+    <div class="strategy-grid animate-2">
+      <div class="strategy-left">
+        <div class="strategy-context-box">
+          <div class="context-label">Mevcut Durum</div>
+          <div class="context-text" style="color:rgba(255,255,255,0.7);">2,215 referring domain · DR 52 · Telegram spam anchor sorunu · %80+ branded/boş anchor dağılımı</div>
+        </div>
+        <div style="margin-top:14px;background:rgba(255,255,255,0.05);border-radius:10px;padding:14px;">
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:#FF7B52;margin-bottom:10px;">12 Ay Hedef</div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="text-align:center;">
+              <div style="font-size:28px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:rgba(255,255,255,0.4);">52</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.35);">Mevcut DR</div>
+            </div>
+            <div style="flex:1;height:2px;background:linear-gradient(to right,rgba(255,255,255,0.2),#FF7B52);border-radius:1px;"></div>
+            <div style="font-size:20px;color:#FF7B52;">→</div>
+            <div style="flex:1;height:2px;background:linear-gradient(to right,#FF7B52,rgba(255,123,82,0.3));border-radius:1px;"></div>
+            <div style="text-align:center;">
+              <div style="font-size:28px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#FF7B52;">60+</div>
+              <div style="font-size:10px;color:rgba(255,255,255,0.35);">Hedef DR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Önerimiz</div>
+        <ul class="strategy-list">
+          <li><div class="list-num" style="background:#dc2626;">!</div><span style="color:rgba(255,255,255,0.8);"><strong style="color:#FF7B52;">Disavow Çalışması:</strong> Toksik backlinklerin tespiti ve disavow edilmesi (öncelik)</span></li>
+          <li><div class="list-num">2</div><span style="color:rgba(255,255,255,0.8);">Editoryal Link Building: Sağlık/fitness portalları, üniversite ve araştırma siteleri</span></li>
+          <li><div class="list-num">3</div><span style="color:rgba(255,255,255,0.8);">Digital PR: "Türkiye Supplement Trendleri 2026" gibi araştırma bazlı içerikler</span></li>
+          <li><div class="list-num">4</div><span style="color:rgba(255,255,255,0.8);">Link Bait: İnfografikler, protein ihtiyacı hesaplayıcı, kalori takip araçları</span></li>
+          <li><div class="list-num">5</div><span style="color:rgba(255,255,255,0.8);">Spor medyası ve influencer outreach programı</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 15: STRATEJİ 6 ==================== -->
+<section class="slide strategy-slide-light" id="slide-15" data-slide="15">
+  <div class="slide-inner">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;" class="animate-1">
+      <div style="background:rgba(255,123,82,0.12);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;color:#FF7B52;letter-spacing:0.08em;">STRATEJİ 6 / 7</div>
+    </div>
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading animate-1">AI Arama Görünürlüğü</h2>
+    <div class="strategy-grid animate-2">
+      <div class="strategy-left">
+        <div class="strategy-context-box light">
+          <div class="context-label">Mevcut Durum</div>
+          <div class="context-text" style="color:#4b5563;">Bazı anahtar kelimelerde AI Overview'da görünüyor:</div>
+        </div>
+        <div style="margin-top:10px;display:flex;flex-direction:column;gap:6px;">
+          <div style="background:rgba(255,123,82,0.07);border:1px solid rgba(255,123,82,0.15);border-radius:8px;padding:8px 12px;font-size:12px;color:#374151;">
+            AI Overview'da: <strong style="color:#FF7B52;">glutamin</strong>
+          </div>
+          <div style="background:rgba(255,123,82,0.07);border:1px solid rgba(255,123,82,0.15);border-radius:8px;padding:8px 12px;font-size:12px;color:#374151;">
+            AI Overview'da: <strong style="color:#FF7B52;">kazein nedir</strong>
+          </div>
+          <div style="background:rgba(255,123,82,0.07);border:1px solid rgba(255,123,82,0.15);border-radius:8px;padding:8px 12px;font-size:12px;color:#374151;">
+            AI Overview'da: <strong style="color:#FF7B52;">glukozamin ne işe yarar</strong>
+          </div>
+        </div>
+        <div class="highlight-box light" style="margin-top:14px;">
+          AI Overview hedef kelimeler: <strong>Magnezyum, protein tozu, kreatin</strong> konularında content optimization
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px;color:#6b7280;margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Önerimiz</div>
+        <ul class="strategy-list light">
+          <li><div class="list-num">1</div><span style="color:#374151;">Yapısal Veri (Schema): Product, FAQ, HowTo, Article schema optimizasyonu</span></li>
+          <li><div class="list-num">2</div><span style="color:#374151;">E-E-A-T Güçlendirme: Uzman profilleri, bilimsel referanslar, Experience sinyalleri</span></li>
+          <li><div class="list-num">3</div><span style="color:#374151;">Conversational Content: Soru-cevap formatında "Nedir, Nasıl, Ne işe yarar" içerikler</span></li>
+          <li><div class="list-num">4</div><span style="color:#374151;">LLM Görünürlüğü: ChatGPT, Gemini, Perplexity'de brand mention takibi</span></li>
+          <li><div class="list-num">5</div><span style="color:#374151;">Otoritatif, kaynak gösterilir içerik üretimi ve Wikipedia optimizasyonu</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 16: STRATEJİ 7 ==================== -->
+<section class="slide strategy-slide-dark" id="slide-16" data-slide="16">
+  <div class="slide-inner">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;" class="animate-1">
+      <div style="background:rgba(255,123,82,0.2);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;color:#FF7B52;letter-spacing:0.08em;">STRATEJİ 7 / 7</div>
+    </div>
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading-light animate-1">Teknik SEO Yaklaşımımız</h2>
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,123,82,0.25);border-radius:12px;padding:14px 18px;margin-bottom:20px;" class="animate-2">
+      <div style="font-size:12px;color:rgba(255,123,82,0.9);display:flex;align-items:center;gap:8px;"><span>ℹ</span> Not: Core Web Vitals özelinde teknik iş kapsamı dışındadır. Aşağıdaki alanlarda teknik destek sunuyoruz.</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;" class="animate-3">
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
+        <div style="font-size:22px;margin-bottom:10px;">🗺</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Crawl Budget</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Crawl budget optimizasyonu ve bot erişim yönetimi</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
+        <div style="font-size:22px;margin-bottom:10px;">🔗</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Internal Linking</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Internal link yapısının güçlendirilmesi ve page authority akışı</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
+        <div style="font-size:22px;margin-bottom:10px;">🏷</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Canonical Tags</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Canonical tag düzenlenmesi ve duplicate content yönetimi</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
+        <div style="font-size:22px;margin-bottom:10px;">📋</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Sitemap & Robots</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Sitemap ve robots.txt optimizasyonu</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
+        <div style="font-size:22px;margin-bottom:10px;">📊</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Hız Monitoring</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Sayfa hızı monitoring (CWV implementasyonu hariç)</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
+        <div style="font-size:22px;margin-bottom:10px;">🔀</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">URL & Redirect</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">URL yapısı analizi ve yönlendirme yönetimi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 17: YOL HARİTASI ==================== -->
+<section class="slide" id="slide-17" data-slide="17" style="background:var(--primary);">
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading-light animate-1">12 Aylık Yol Haritası</h2>
+    <p class="slide-subheading-light animate-2">Şubat 2026 – Ocak 2027</p>
+    <div class="roadmap-grid animate-3">
+      <div class="roadmap-card">
+        <div class="roadmap-period">Ay 1–2 · Şubat – Mart</div>
+        <ul class="roadmap-items">
+          <li>Teknik audit ve disavow çalışması</li>
+          <li>Title optimizasyonu başlangıcı</li>
+          <li>İçerik stratejisi planlaması</li>
+          <li>Beyan veritabanı kurulumu</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-period">Ay 3–4 · Nisan – Mayıs</div>
+        <ul class="roadmap-items">
+          <li>Blog altyapısı kurulumu</li>
+          <li>Kategori içerik optimizasyonu</li>
+          <li>İlk backlink kampanyası</li>
+          <li>FAQ & schema implementasyonu</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-period">Ay 5–6 · Haziran – Temmuz</div>
+        <ul class="roadmap-items">
+          <li>İçerik üretimine hız (8-12/ay)</li>
+          <li>AI görünürlük çalışmaları</li>
+          <li>Schema optimizasyonu</li>
+          <li>İlk performans değerlendirmesi</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-period">Ay 7–8 · Ağustos – Eylül</div>
+        <ul class="roadmap-items">
+          <li>Title A/B testleri</li>
+          <li>İkinci backlink kampanyası</li>
+          <li>İçerik performans analizi</li>
+          <li>GSC CTR optimizasyonu</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-period">Ay 9–10 · Ekim – Kasım</div>
+        <ul class="roadmap-items">
+          <li>İleri düzey link building</li>
+          <li>Mevcut içerik güncellemeleri</li>
+          <li>AI arama optimizasyonu</li>
+          <li>Digital PR kampanyası</li>
+        </ul>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-period">Ay 11–12 · Aralık – Ocak</div>
+        <ul class="roadmap-items">
+          <li>Yıllık performans raporu</li>
+          <li>Strateji revizyonu</li>
+          <li>Sürdürülebilir büyüme planı</li>
+          <li>2027 yol haritası hazırlığı</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 18: HEDEFLER ==================== -->
+<section class="slide" id="slide-18" data-slide="18" style="background:var(--bg-light);">
+  <div class="slide-inner">
+    <div class="heading-accent-line animate-1"></div>
+    <h2 class="slide-heading animate-1">Hedefler & KPI'lar</h2>
+    <p class="slide-subheading animate-2">Mevcut durum ile 6 ve 12 aylık hedef karşılaştırması</p>
+    <div class="kpi-table-wrap animate-3">
+      <table class="kpi-table">
+        <thead>
+          <tr>
+            <th>Metrik</th>
+            <th class="col-current">Mevcut Durum</th>
+            <th class="col-6m">6 Ay Hedef</th>
+            <th class="col-12m">12 Ay Hedef</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Organik Trafik</td>
+            <td class="col-current">386K</td>
+            <td class="col-6m">500K</td>
+            <td class="col-12m">650K</td>
+          </tr>
+          <tr>
+            <td>Top 3 Kelime</td>
+            <td class="col-current">4,848</td>
+            <td class="col-6m">6,000</td>
+            <td class="col-12m">7,500</td>
+          </tr>
+          <tr>
+            <td>Top 10 Kelime</td>
+            <td class="col-current">11,894</td>
+            <td class="col-6m">14,000</td>
+            <td class="col-12m">17,000</td>
+          </tr>
+          <tr>
+            <td>Domain Rating</td>
+            <td class="col-current">52</td>
+            <td class="col-6m">56</td>
+            <td class="col-12m">60+</td>
+          </tr>
+          <tr>
+            <td>Referring Domain</td>
+            <td class="col-current">2,215</td>
+            <td class="col-6m">2,800</td>
+            <td class="col-12m">3,500</td>
+          </tr>
+          <tr>
+            <td>Blog İçerik</td>
+            <td class="col-current">0</td>
+            <td class="col-6m">50+</td>
+            <td class="col-12m">100+</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;" class="animate-4">
+      <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px 20px;box-shadow:0 2px 8px rgba(16,51,47,0.04);flex:1;min-width:160px;text-align:center;">
+        <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#FF7B52;">+68%</div>
+        <div style="font-size:11px;color:#6b7280;margin-top:2px;">Trafik Büyümesi (12 ay)</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px 20px;box-shadow:0 2px 8px rgba(16,51,47,0.04);flex:1;min-width:160px;text-align:center;">
+        <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#10332F;">+54%</div>
+        <div style="font-size:11px;color:#6b7280;margin-top:2px;">Top 3 Kelime Artışı</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px 20px;box-shadow:0 2px 8px rgba(16,51,47,0.04);flex:1;min-width:160px;text-align:center;">
+        <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#254E49;">60+</div>
+        <div style="font-size:11px;color:#6b7280;margin-top:2px;">Hedef Domain Rating</div>
+      </div>
+      <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px 20px;box-shadow:0 2px 8px rgba(16,51,47,0.04);flex:1;min-width:160px;text-align:center;">
+        <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#FF7B52;">100+</div>
+        <div style="font-size:11px;color:#6b7280;margin-top:2px;">Blog İçerik Hedefi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 19: NEDEN INBOUND ==================== -->
+<section class="slide" id="slide-19" data-slide="19" style="background:var(--primary);">
+  <div class="slide-inner" style="text-align:center;">
+    <div class="heading-accent-line animate-1" style="margin:0 auto 12px;"></div>
+    <h2 class="slide-heading-light animate-1">Neden Inbound?</h2>
+    <p class="slide-subheading-light animate-2">supplementler.com için doğru SEO ortağı</p>
+    <div class="why-grid animate-3">
+      <div class="why-card">
+        <div class="why-icon">📊</div>
+        <div class="why-title">Veri Odaklı Yaklaşım</div>
+        <div class="why-desc">Her karar, Ahrefs, GSC ve analitik verilerine dayalı. Tahmin değil, kanıt.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <div class="why-title">Sektörel Deneyim</div>
+        <div class="why-desc">E-ticaret ve sağlık/supplement sektöründe kanıtlanmış SEO başarıları.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔍</div>
+        <div class="why-title">Şeffaf Raporlama</div>
+        <div class="why-desc">Aylık detaylı raporlar, canlı dashboard erişimi ve düzenli strateji toplantıları.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌱</div>
+        <div class="why-title">Sürdürülebilir Büyüme</div>
+        <div class="why-desc">Kısa vadeli taktikler değil, uzun vadeli organik büyüme modeli.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤖</div>
+        <div class="why-title">AI-Ready Strateji</div>
+        <div class="why-desc">ChatGPT, Gemini ve AI Overview için optimize edilmiş içerik yaklaşımı.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SLIDE 20: KAPANIŞ ==================== -->
+<section class="slide" id="slide-20" data-slide="20" style="background:var(--primary);">
+  <div class="geo-circle geo1" style="width:600px;height:600px;background:#FF7B52;bottom:-250px;right:-150px;position:absolute;opacity:.07;border-radius:50%;"></div>
+  <div class="geo-ring" style="width:300px;height:300px;border:2px solid #FF7B52;opacity:.08;top:-80px;left:-60px;position:absolute;border-radius:50%;"></div>
+  <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;">
+    <div class="contact-card animate-2">
+      <div class="contact-logo">Inbound</div>
+      <div class="contact-tagline">SEO & Dijital Büyüme Ajansı</div>
+      <div class="contact-title">Sorularınız için<br>Hazırız.</div>
+      <div class="contact-sub">supplementler.com'un SEO yolculuğunda birlikte büyüyelim.</div>
+      <a href="mailto:merhaba@inbound.com.tr" class="contact-cta">Hemen İletişime Geç</a>
+      <div style="margin-top:24px;font-size:12px;color:rgba(255,255,255,0.3);">merhaba@inbound.com.tr &nbsp;·&nbsp; inbound.com.tr</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /slides-container -->
+
+<script>
+(function() {
+  // ===== TRAFFIC CHART DATA =====
+  const trafficData = [
+    { label: 'Şub 25', value: 290129 },
+    { label: 'Mar 25', value: 313493 },
+    { label: 'Nis 25', value: 388605 },
+    { label: 'May 25', value: 376439 },
+    { label: 'Haz 25', value: 320735 },
+    { label: 'Tem 25', value: 367230 },
+    { label: 'Ağu 25', value: 335060 },
+    { label: 'Eyl 25', value: 319178 },
+    { label: 'Eki 25', value: 285226 },
+    { label: 'Kas 25', value: 360818 },
+    { label: 'Ara 25', value: 346160 },
+    { label: 'Oca 26', value: 379255 },
+    { label: 'Şub 26', value: 392774 }
+  ];
+
+  function buildTrafficChart() {
+    const container = document.getElementById('traffic-bar-chart');
+    if (!container) return;
+    const maxVal = Math.max(...trafficData.map(d => d.value));
+    const chartHeight = 180;
+    trafficData.forEach((d, i) => {
+      const pct = (d.value / maxVal) * 100;
+      const barH = Math.max(8, (pct / 100) * chartHeight);
+      const col = document.createElement('div');
+      col.className = 'bar-col';
+      const isLast = i === trafficData.length - 1;
+      const formatted = (d.value / 1000).toFixed(0) + 'K';
+      col.innerHTML = `
+        <div class="bar" style="height:${barH}px;background:${isLast ? '#FF7B52' : 'rgba(255,123,82,0.6)'};${isLast ? 'box-shadow:0 0 16px rgba(255,123,82,0.4);' : ''}">
+          <div class="bar-tooltip">${formatted}</div>
+        </div>
+        <div class="bar-label">${d.label}</div>
+      `;
+      container.appendChild(col);
+    });
+  }
+
+  buildTrafficChart();
+
+  // ===== SLIDE NAVIGATION =====
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const total = slides.length;
+  let current = 0;
+  let isAnimating = false;
+
+  const progressBar = document.getElementById('progress-bar');
+  const slideCounter = document.getElementById('slide-counter');
+
+  function goTo(index) {
+    if (isAnimating || index === current || index < 0 || index >= total) return;
+    isAnimating = true;
+
+    const prev = current;
+    const dir = index > prev ? 1 : -1;
+
+    slides[prev].classList.remove('active');
+    slides[prev].classList.add(dir > 0 ? 'exit-left' : '');
+    if (dir < 0) {
+      slides[prev].style.transform = 'translateX(60px)';
+      slides[prev].style.opacity = '0';
+    }
+
+    current = index;
+    slides[current].style.transform = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
+    slides[current].style.opacity = '0';
+    slides[current].classList.add('active');
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        slides[current].style.transition = 'opacity 0.55s cubic-bezier(0.4,0,0.2,1), transform 0.55s cubic-bezier(0.4,0,0.2,1)';
+        slides[current].style.transform = 'translateX(0)';
+        slides[current].style.opacity = '1';
+      });
+    });
+
+    setTimeout(() => {
+      slides[prev].classList.remove('exit-left');
+      slides[prev].style.transform = '';
+      slides[prev].style.opacity = '';
+      slides[prev].style.transition = '';
+      isAnimating = false;
+    }, 580);
+
+    // Update progress
+    const pct = ((current + 1) / total) * 100;
+    progressBar.style.width = pct + '%';
+    slideCounter.textContent = (current + 1) + ' / ' + total;
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  document.getElementById('nav-next').addEventListener('click', next);
+  document.getElementById('nav-prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', function(e) {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
+
+  // Init progress
+  progressBar.style.width = ((1 / total) * 100) + '%';
+})();
+</script>
+</body>
+</html>
