@@ -1,3 +1,5 @@
 node_modules/
 pptx_extracted/
 *.pptx
+generate-*.js
+package-lock.json
