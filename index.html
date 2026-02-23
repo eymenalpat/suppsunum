@@ -1740,17 +1740,19 @@ html, body {
     if (isAnimating || index === current || index < 0 || index >= total) return;
     isAnimating = true;
 
-    const prev = current;
-    const dir = index > prev ? 1 : -1;
+    const prevIndex = current;
+    const dir = index > prevIndex ? 1 : -1;
 
-    slides[prev].classList.remove('active');
-    slides[prev].classList.add(dir > 0 ? 'exit-left' : '');
-    if (dir < 0) {
-      slides[prev].style.transform = 'translateX(60px)';
-      slides[prev].style.opacity = '0';
+    slides[prevIndex].classList.remove('active');
+    if (dir > 0) {
+      slides[prevIndex].classList.add('exit-left');
+    } else {
+      slides[prevIndex].style.transform = 'translateX(60px)';
+      slides[prevIndex].style.opacity = '0';
     }
 
     current = index;
+    slides[current].style.transition = 'none';
     slides[current].style.transform = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
     slides[current].style.opacity = '0';
     slides[current].classList.add('active');
@@ -1764,28 +1766,30 @@ html, body {
     });
 
     setTimeout(() => {
-      slides[prev].classList.remove('exit-left');
-      slides[prev].style.transform = '';
-      slides[prev].style.opacity = '';
-      slides[prev].style.transition = '';
+      slides[prevIndex].classList.remove('exit-left');
+      slides[prevIndex].style.transform = '';
+      slides[prevIndex].style.opacity = '';
+      slides[prevIndex].style.transition = '';
+      slides[current].style.transform = '';
+      slides[current].style.opacity = '';
+      slides[current].style.transition = '';
       isAnimating = false;
-    }, 580);
+    }, 600);
 
-    // Update progress
     const pct = ((current + 1) / total) * 100;
     progressBar.style.width = pct + '%';
     slideCounter.textContent = (current + 1) + ' / ' + total;
   }
 
   function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
+  function prevSlide() { goTo(current - 1); }
 
-  document.getElementById('nav-next').addEventListener('click', next);
-  document.getElementById('nav-prev').addEventListener('click', prev);
+  document.getElementById('nav-next').addEventListener('click', function() { this.blur(); next(); });
+  document.getElementById('nav-prev').addEventListener('click', function() { this.blur(); prevSlide(); });
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); next(); }
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prev(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prevSlide(); }
   });
 
   // Touch/swipe support
@@ -1798,7 +1802,7 @@ html, body {
     const dx = e.changedTouches[0].clientX - touchStartX;
     const dy = e.changedTouches[0].clientY - touchStartY;
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-      if (dx < 0) next(); else prev();
+      if (dx < 0) next(); else prevSlide();
     }
   }, { passive: true });
 
