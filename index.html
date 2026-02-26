@@ -567,64 +567,8 @@ html, body {
   margin-top: 1px;
 }
 
-/* ===== SLIDE 18: KPI Targets ===== */
-#slide-18 { background: var(--bg-light); }
-
-.kpi-table-wrap {
-  background: var(--white);
-  border-radius: 14px; overflow: hidden;
-  border: 1px solid rgba(16,51,47,0.08);
-  box-shadow: 0 2px 12px rgba(16,51,47,0.05);
-}
-.kpi-table { width: 100%; border-collapse: collapse; }
-.kpi-table th {
-  padding: 12px 18px; text-align: left;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--white);
-}
-.kpi-table th:first-child { background: var(--primary); }
-.kpi-table th.col-current { background: var(--secondary-green); }
-.kpi-table th.col-6m { background: var(--accent); }
-.kpi-table th.col-12m { background: var(--secondary-dark); }
-.kpi-table td {
-  padding: 12px 18px;
-  border-bottom: 1px solid rgba(16,51,47,0.06);
-  font-size: 13px; color: var(--gray-800);
-}
-.kpi-table tr:last-child td { border-bottom: none; }
-.kpi-table tr:hover td { background: rgba(255,123,82,0.03); }
-.kpi-table td:first-child { font-weight: 600; color: var(--primary); }
-.kpi-table td.col-current { color: var(--secondary-green); font-weight: 600; }
-.kpi-table td.col-6m { color: var(--accent); font-weight: 600; }
-.kpi-table td.col-12m { color: var(--secondary-dark); font-weight: 700; }
-
-/* ===== SLIDE 19: Why Inbound ===== */
-#slide-19 { background: var(--primary); }
-
-.why-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr);
-  gap: 14px; margin-top: 8px;
-}
-.why-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 14px; padding: 24px 16px;
-  text-align: center;
-  transition: transform 0.2s, background 0.2s;
-}
-.why-card:hover { transform: translateY(-4px); background: rgba(255,123,82,0.1); }
-.why-icon { font-size: 32px; margin-bottom: 12px; }
-.why-title {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 14px; font-weight: 600;
-  color: var(--white); margin-bottom: 8px;
-}
-.why-desc { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; }
-
-/* ===== SLIDE 20: Contact ===== */
-#slide-20 { background: var(--primary); }
-#slide-20 .geo1 {
+/* ===== SLIDE 18: Contact ===== */
+#slide-18 .geo1 {
   width: 600px; height: 600px;
   background: var(--accent);
   bottom: -250px; right: -150px;
@@ -692,13 +636,11 @@ html, body {
   .slide-inner { padding: 0 36px; max-width: 100%; }
   .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .strategy-grid { grid-template-columns: 1fr; gap: 20px; }
-  .why-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
   .roadmap-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
   .backlink-grid { grid-template-columns: 1fr; }
   .bar-chart { height: 150px; gap: 5px; }
   .bar-label { font-size: 8px; }
   .data-table th, .data-table td { padding: 8px 10px; font-size: 12px; }
-  .kpi-table th, .kpi-table td { padding: 10px 14px; font-size: 12px; }
   .pos-series { flex-wrap: wrap; gap: 8px; }
   .pos-bar-track { flex: 2; min-width: 120px; }
   .contact-card { padding: 28px 24px; }
@@ -789,19 +731,6 @@ html, body {
   .roadmap-period { font-size: 10px; margin-bottom: 6px; }
   .roadmap-items li { font-size: 11px; }
 
-  /* KPI Targets table */
-  .kpi-table-wrap { overflow-x: auto; }
-  .kpi-table { min-width: 440px; }
-  .kpi-table th { font-size: 9px; padding: 8px 10px; }
-  .kpi-table td { font-size: 11px; padding: 8px 10px; }
-
-  /* Why Inbound */
-  .why-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-  .why-card { padding: 16px 12px; border-radius: 10px; }
-  .why-icon { font-size: 24px; margin-bottom: 8px; }
-  .why-title { font-size: 12px; margin-bottom: 4px; }
-  .why-desc { font-size: 10px; }
-
   /* Contact */
   .contact-card { padding: 24px 20px; border-radius: 16px; }
   .contact-logo { font-size: 22px; }
@@ -826,7 +755,6 @@ html, body {
   .slide-inner { padding: 70px 14px 30px; }
   .cover-title { font-size: 26px; }
   .kpi-grid { grid-template-columns: 1fr; }
-  .why-grid { grid-template-columns: 1fr; }
   .kpi-value { font-size: 18px; }
   .bar-chart { height: 90px; }
 }
@@ -835,7 +763,7 @@ html, body {
 <body>
 
 <div id="progress-bar" style="width:5%"></div>
-<div id="slide-counter">1 / 20</div>
+<div id="slide-counter">1 / 18</div>
 <button class="nav-btn" id="nav-prev" aria-label="Önceki slayt">&#8592;</button>
 <button class="nav-btn" id="nav-next" aria-label="Sonraki slayt">&#8594;</button>
 
@@ -847,7 +775,7 @@ html, body {
   <div class="geo-circle geo2"></div>
   <div class="geo-ring geo3" style="border-radius:50%;width:200px;height:200px;border:2px solid #FF7B52;opacity:.12;top:60px;right:160px;position:absolute;"></div>
   <div class="slide-inner" style="max-width:900px;">
-    <div class="animate-1 cover-agency">Inbound &nbsp;·&nbsp; SEO Ajansı</div>
+    <div class="animate-1 cover-agency">Inbound</div>
     <div class="cover-divider animate-2"></div>
     <h1 class="cover-title animate-2">SEO Stratejisi &<br><span>Büyüme Planı</span></h1>
     <div class="cover-subtitle animate-3">supplementler.com</div>
@@ -1104,6 +1032,7 @@ html, body {
         </tbody>
       </table>
     </div>
+    <div style="margin-top:10px;font-size:12px;color:#6b7280;font-style:italic;" class="animate-4">Not: Rakipler ortak organik kelime sayısına göre seçilmiştir.</div>
   </div>
 </section>
 
@@ -1215,20 +1144,17 @@ html, body {
       <div class="strategy-left">
         <div class="strategy-context-box">
           <div class="context-label">Mevcut Durum</div>
-          <div class="context-text" style="color:rgba(255,255,255,0.7);">Kategori sayfaları statik meta açıklamalarla sınırlı. Dinamik içerik yok. Arama niyetine özel içerik eksik.</div>
-        </div>
-        <div class="highlight-box" style="margin-top:16px;">
-          <strong style="color:#FF7B52;">Örnek Hedef:</strong> "Protein Tozu" kategorisi (79K aylık arama, şu an 3. sıra)<br><br>Dinamik içerik + FAQ ile <strong>1. sıraya</strong> hedef.
+          <div class="context-text" style="color:rgba(255,255,255,0.7);">Kategori sayfaları statik meta açıklamalarla sınırlı görünmekte. Dinamik içerik bulunmadığını görüyoruz. Arama niyetine özel içerikler üretilmelidir.</div>
         </div>
       </div>
       <div>
         <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Önerimiz</div>
         <ul class="strategy-list">
-          <li><div class="list-num">1</div><span style="color:rgba(255,255,255,0.8);">Her kategori için arama niyeti bazlı dinamik içerik blokları oluşturulacak</span></li>
-          <li><div class="list-num">2</div><span style="color:rgba(255,255,255,0.8);">Trend takip sistemi: Google Trends, sosyal medya ve araştırma kaynaklarından trend konular takip edilecek</span></li>
-          <li><div class="list-num">3</div><span style="color:rgba(255,255,255,0.8);">Mevsimsel içerik takvimi: Yaz: yağ yakıcılar · Kış: bağışıklık · Ocak: yeni yıl hedefleri</span></li>
-          <li><div class="list-num">4</div><span style="color:rgba(255,255,255,0.8);">Kullanıcı sorularına dayalı FAQ bölümleri (People Also Ask verisi ile)</span></li>
-          <li><div class="list-num">5</div><span style="color:rgba(255,255,255,0.8);">İçerik performans takibi: Her güncelleme sonrası CTR ve trafik ölçümü</span></li>
+          <li><div class="list-num">1</div><span style="color:rgba(255,255,255,0.8);">Her kategori için arama niyeti bazlı dinamik içerik bloklarının oluşturulması</span></li>
+          <li><div class="list-num">2</div><span style="color:rgba(255,255,255,0.8);">Trend takip sistemi: Google Trends, sosyal medya ve araştırma kaynaklarından trend konuların takip edilmesi</span></li>
+          <li><div class="list-num">3</div><span style="color:rgba(255,255,255,0.8);">Mevsimsel içerik takviminin planlanması: Yaz: yağ yakıcılar · Kış: bağışıklık · Ocak: yeni yıl hedefleri</span></li>
+          <li><div class="list-num">4</div><span style="color:rgba(255,255,255,0.8);">Kullanıcı sorularına dayalı FAQ bölümlerinin eklenmesi (People Also Ask verisi ile)</span></li>
+          <li><div class="list-num">5</div><span style="color:rgba(255,255,255,0.8);">İçerik performans takibi: Her güncelleme sonrası CTR ve trafik ölçümlemesi</span></li>
         </ul>
       </div>
     </div>
@@ -1247,7 +1173,7 @@ html, body {
       <div class="strategy-left">
         <div class="strategy-context-box light">
           <div class="context-label">Mevcut Durum</div>
-          <div class="context-text" style="color:#4b5563;">Sabit title yapıları kullanılıyor. CTR potansiyeli kullanılmıyor. Arama niyeti bazlı farklılaşma yok.</div>
+          <div class="context-text" style="color:#4b5563;">Sabit title yapılarının kullanıldığı görülmektedir. CTR potansiyeli yeterince değerlendirilmemektedir. Arama niyeti bazlı farklılaşma görülmemektedir.</div>
         </div>
         <div style="margin-top:16px;">
           <div style="font-size:11px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;">Sayfa Tipi Şablonları</div>
@@ -1279,12 +1205,12 @@ html, body {
       <div style="background:rgba(255,123,82,0.2);border-radius:100px;padding:4px 14px;font-size:11px;font-weight:700;color:#FF7B52;letter-spacing:0.08em;">STRATEJİ 3 / 7</div>
     </div>
     <div class="heading-accent-line animate-1"></div>
-    <h2 class="slide-heading-light animate-1">Blog Yapısının Kurulması & İçerik Stratejisi</h2>
+    <h2 class="slide-heading-light animate-1">Blog & İçerik Stratejisi (E-E-A-T Odaklı)</h2>
     <div class="strategy-grid animate-2">
       <div class="strategy-left">
         <div class="strategy-context-box">
           <div class="context-label">Mevcut Durum</div>
-          <div class="context-text" style="color:rgba(255,255,255,0.7);">Bilgi bankası mevcut ama blog altyapısı kurulmamış. Mevcut sayfalar iyi trafik alıyor:</div>
+          <div class="context-text" style="color:rgba(255,255,255,0.7);"><a href="https://blog.supplementler.com/" style="color:#FF7B52;text-decoration:underline;">blog.supplementler.com</a> adresinde mevcut bir blog bulunmaktadır. Bilgi bankası sayfaları iyi trafik almaktadır. E-E-A-T çerçevesinden değerlendirildiğinde, uzmanlık (Expertise) ve deneyim (Experience) sinyallerinin güçlendirilmesi gerekmektedir.</div>
         </div>
         <div style="margin-top:12px;display:flex;flex-direction:column;gap:6px;">
           <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:8px 12px;display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.7);">
@@ -1304,12 +1230,13 @@ html, body {
       <div>
         <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Önerimiz</div>
         <ul class="strategy-list">
-          <li><div class="list-num">1</div><span style="color:rgba(255,255,255,0.8);">Blog altyapısı: /blog/ dizini altında SEO-uyumlu yapı kurulacak</span></li>
-          <li><div class="list-num">2</div><span style="color:rgba(255,255,255,0.8);"><strong style="color:#FF7B52;">İçerik piramidi:</strong> Pillar (rehberler) → Cluster (alt konular) → Supporting (trend & soru)</span></li>
-          <li><div class="list-num">3</div><span style="color:rgba(255,255,255,0.8);">Arama niyeti mapping: Her içerik bir arama niyetine hizmet edecek</span></li>
-          <li><div class="list-num">4</div><span style="color:rgba(255,255,255,0.8);">İçerik takvimi: Aylık minimum 8–12 yeni içerik</span></li>
-          <li><div class="list-num">5</div><span style="color:rgba(255,255,255,0.8);">Mevcut bilgi bankası içeriklerinin blog'a entegrasyonu</span></li>
-          <li><div class="list-num">6</div><span style="color:rgba(255,255,255,0.8);">Internal linking: Bilgi bankası ↔ Kategori ↔ Ürün sayfaları arası bağlantılar</span></li>
+          <li><div class="list-num">1</div><span style="color:rgba(255,255,255,0.8);">Blog içeriklerinin E-E-A-T çerçevesinde güçlendirilmesi: Uzman yazar profilleri, bilimsel referanslar, deneyim sinyalleri</span></li>
+          <li><div class="list-num">2</div><span style="color:rgba(255,255,255,0.8);"><strong style="color:#FF7B52;">İçerik piramidi:</strong> Pillar (kapsamlı rehberler) → Cluster (alt konular) → Supporting (trend & soru bazlı)</span></li>
+          <li><div class="list-num">3</div><span style="color:rgba(255,255,255,0.8);">Arama niyeti mapping: Her içeriğin belirli bir arama niyetine hizmet edecek şekilde planlanması</span></li>
+          <li><div class="list-num">4</div><span style="color:rgba(255,255,255,0.8);">Keyword cannibalization analizi ve mevcut içeriklerin konsolidasyonu</span></li>
+          <li><div class="list-num">5</div><span style="color:rgba(255,255,255,0.8);">İçerik takvimi: Aylık minimum 8–12 yeni SEO odaklı içerik üretimi</span></li>
+          <li><div class="list-num">6</div><span style="color:rgba(255,255,255,0.8);">Internal linking: Blog ↔ Kategori ↔ Ürün sayfaları arası stratejik bağlantı yapısının oluşturulması</span></li>
+          <li><div class="list-num">7</div><span style="color:rgba(255,255,255,0.8);">İçerik performans takibi: Organik trafik, backlink kazanımı ve SERP pozisyon değişimleri bazında düzenli ölçümleme</span></li>
         </ul>
       </div>
     </div>
@@ -1333,10 +1260,10 @@ html, body {
         <div style="margin-top:14px;background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px;box-shadow:0 2px 8px rgba(16,51,47,0.04);">
           <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:#6b7280;margin-bottom:10px;">Bu Yaklaşımın Faydaları</div>
           <div style="font-size:12px;color:#374151;line-height:1.7;">
-            Yasal uyumluluk saglanir<br>
-            E-E-A-T sinyali guclendirilir<br>
-            Google guven skoru artar<br>
-            Kullanici guveni kazanilir
+            Yasal uyumluluk sağlanır<br>
+            E-E-A-T sinyali güçlendirilir<br>
+            Google güven skoru artar<br>
+            Kullanıcı güveni kazanılır
           </div>
         </div>
       </div>
@@ -1369,7 +1296,7 @@ html, body {
           <div class="context-text" style="color:rgba(255,255,255,0.7);">2,215 referring domain · DR 52 · Telegram spam anchor sorunu · %80+ branded/boş anchor dağılımı</div>
         </div>
         <div style="margin-top:14px;background:rgba(255,255,255,0.05);border-radius:10px;padding:14px;">
-          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:#FF7B52;margin-bottom:10px;">12 Ay Hedef</div>
+          <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.07em;color:#FF7B52;margin-bottom:10px;">Birincil Hedef</div>
           <div style="display:flex;align-items:center;gap:12px;">
             <div style="text-align:center;">
               <div style="font-size:28px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:rgba(255,255,255,0.4);">52</div>
@@ -1450,40 +1377,40 @@ html, body {
     </div>
     <div class="heading-accent-line animate-1"></div>
     <h2 class="slide-heading-light animate-1">Teknik SEO Yaklaşımımız</h2>
-    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,123,82,0.25);border-radius:12px;padding:14px 18px;margin-bottom:20px;" class="animate-2">
-      <div style="font-size:12px;color:rgba(255,123,82,0.9);display:flex;align-items:center;gap:8px;"><span>ℹ</span> Not: Core Web Vitals özelinde teknik iş kapsamı dışındadır. Aşağıdaki alanlarda teknik destek sunuyoruz.</div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;" class="animate-3">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;" class="animate-2">
       <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
-        <div style="font-size:22px;margin-bottom:10px;">🗺</div>
-        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Crawl Budget</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Crawl budget optimizasyonu ve bot erişim yönetimi</div>
+        <div style="font-size:22px;margin-bottom:10px;">🔍</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Crawl Budget & Log Analizi</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Log file analizi ile Googlebot davranış takibi, crawl budget optimizasyonu ve render bütçesi yönetimi</div>
       </div>
       <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
-        <div style="font-size:22px;margin-bottom:10px;">🔗</div>
-        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Internal Linking</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Internal link yapısının güçlendirilmesi ve page authority akışı</div>
+        <div style="font-size:22px;margin-bottom:10px;">⚙</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">JavaScript SEO & Rendering</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Client-side rendering sorunlarının tespiti, dynamic rendering stratejisi ve JavaScript indexleme optimizasyonu</div>
       </div>
       <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
         <div style="font-size:22px;margin-bottom:10px;">🏷</div>
-        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Canonical Tags</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Canonical tag düzenlenmesi ve duplicate content yönetimi</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Structured Data & Schema</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Product, FAQ, HowTo, Review ve BreadcrumbList schema markup implementasyonu ve zengin sonuç optimizasyonu</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
+        <div style="font-size:22px;margin-bottom:10px;">🔗</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Internal Link Architecture</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">PageRank akış analizi, hub-spoke link modeli, orphan page tespiti ve link equity dağılımı optimizasyonu</div>
       </div>
       <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
         <div style="font-size:22px;margin-bottom:10px;">📋</div>
-        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Sitemap & Robots</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Sitemap ve robots.txt optimizasyonu</div>
-      </div>
-      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
-        <div style="font-size:22px;margin-bottom:10px;">📊</div>
-        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Hız Monitoring</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Sayfa hızı monitoring (CWV implementasyonu hariç)</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Index Management</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">Faceted navigation yönetimi, canonical stratejisi, pagination çözümleri ve duplicate content konsolidasyonu</div>
       </div>
       <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:20px;">
         <div style="font-size:22px;margin-bottom:10px;">🔀</div>
-        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">URL & Redirect</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">URL yapısı analizi ve yönlendirme yönetimi</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:6px;">Site Architecture & Edge SEO</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.55);line-height:1.5;">URL mimarisi optimizasyonu, yönlendirme zinciri analizi, hreflang implementasyonu ve server-side header yönetimi</div>
       </div>
+    </div>
+    <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,123,82,0.25);border-radius:12px;padding:14px 18px;margin-top:16px;" class="animate-3">
+      <div style="font-size:12px;color:rgba(255,123,82,0.9);display:flex;align-items:center;gap:8px;"><span>ℹ</span> Not: Markadan gelen bilgilendirmeye göre Core Web Vitals (CWV) çalışmaları önceliklendirilmeyecektir. Bu nedenle roadmap'te yukarıdaki teknik SEO maddelerine odaklanılacaktır.</div>
     </div>
   </div>
 </section>
@@ -1497,55 +1424,61 @@ html, body {
     <div class="roadmap-grid animate-3">
       <div class="roadmap-card">
         <div class="roadmap-period">Ay 1–2 · Şubat – Mart</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:8px;">Temel Analiz & Altyapı</div>
         <ul class="roadmap-items">
-          <li>Teknik audit ve disavow çalışması</li>
-          <li>Title optimizasyonu başlangıcı</li>
-          <li>İçerik stratejisi planlaması</li>
-          <li>Beyan veritabanı kurulumu</li>
+          <li>Teknik SEO audit ve altyapı analizi</li>
+          <li>İçerik stratejisi ve keyword mapping</li>
+          <li>E-E-A-T çerçevesi kurulumu</li>
+          <li>Mevcut içerik envanteri ve gap analizi</li>
         </ul>
       </div>
       <div class="roadmap-card">
         <div class="roadmap-period">Ay 3–4 · Nisan – Mayıs</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:8px;">On-Page Optimizasyon & İçerik Üretimi</div>
         <ul class="roadmap-items">
-          <li>Blog altyapısı kurulumu</li>
-          <li>Kategori içerik optimizasyonu</li>
-          <li>İlk backlink kampanyası</li>
-          <li>FAQ & schema implementasyonu</li>
+          <li>Kategori ve ürün sayfası SEO optimizasyonu</li>
+          <li>Blog içerik üretim sürecinin başlatılması</li>
+          <li>Structured data implementasyonu</li>
+          <li>AI arama görünürlüğü temelleri</li>
         </ul>
       </div>
       <div class="roadmap-card">
         <div class="roadmap-period">Ay 5–6 · Haziran – Temmuz</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:8px;">Büyüme & Ölçeklendirme</div>
         <ul class="roadmap-items">
-          <li>İçerik üretimine hız (8-12/ay)</li>
-          <li>AI görünürlük çalışmaları</li>
-          <li>Schema optimizasyonu</li>
-          <li>İlk performans değerlendirmesi</li>
+          <li>İçerik üretim hızının artırılması (8-12/ay)</li>
+          <li>AI Overview ve LLM optimizasyonu</li>
+          <li>Schema ve zengin sonuç geliştirme</li>
+          <li>Performans değerlendirmesi ve iterasyon</li>
         </ul>
       </div>
       <div class="roadmap-card">
         <div class="roadmap-period">Ay 7–8 · Ağustos – Eylül</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:8px;">Derinleştirme & A/B Test</div>
         <ul class="roadmap-items">
-          <li>Title A/B testleri</li>
-          <li>İkinci backlink kampanyası</li>
-          <li>İçerik performans analizi</li>
-          <li>GSC CTR optimizasyonu</li>
+          <li>Title ve meta A/B testleri</li>
+          <li>Link profili güçlendirme stratejisi</li>
+          <li>İçerik performans analizi ve optimizasyon</li>
+          <li>GSC verisi ile CTR iyileştirme</li>
         </ul>
       </div>
       <div class="roadmap-card">
         <div class="roadmap-period">Ay 9–10 · Ekim – Kasım</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:8px;">İleri Düzey SEO & AI Stratejileri</div>
         <ul class="roadmap-items">
-          <li>İleri düzey link building</li>
-          <li>Mevcut içerik güncellemeleri</li>
-          <li>AI arama optimizasyonu</li>
-          <li>Digital PR kampanyası</li>
+          <li>Digital PR ve marka otoritesi çalışmaları</li>
+          <li>AI arama platformlarında görünürlük artışı</li>
+          <li>Mevcut içerik güncellemeleri ve konsolidasyon</li>
+          <li>Gelişmiş link building stratejileri</li>
         </ul>
       </div>
       <div class="roadmap-card">
         <div class="roadmap-period">Ay 11–12 · Aralık – Ocak</div>
+        <div style="font-size:13px;font-weight:600;color:#fff;margin-bottom:8px;">Değerlendirme & Yeni Dönem Planlaması</div>
         <ul class="roadmap-items">
-          <li>Yıllık performans raporu</li>
-          <li>Strateji revizyonu</li>
-          <li>Sürdürülebilir büyüme planı</li>
+          <li>Yıllık performans raporu ve analiz</li>
+          <li>Strateji revizyonu ve optimizasyon</li>
+          <li>Sürdürülebilir büyüme modeli</li>
           <li>2027 yol haritası hazırlığı</li>
         </ul>
       </div>
@@ -1553,121 +1486,8 @@ html, body {
   </div>
 </section>
 
-<!-- ==================== SLIDE 18: HEDEFLER ==================== -->
-<section class="slide" id="slide-18" data-slide="18" style="background:var(--bg-light);">
-  <div class="slide-inner">
-    <div class="heading-accent-line animate-1"></div>
-    <h2 class="slide-heading animate-1">Hedefler & KPI'lar</h2>
-    <p class="slide-subheading animate-2">Mevcut durum ile 6 ve 12 aylık hedef karşılaştırması</p>
-    <div class="kpi-table-wrap animate-3">
-      <table class="kpi-table">
-        <thead>
-          <tr>
-            <th>Metrik</th>
-            <th class="col-current">Mevcut Durum</th>
-            <th class="col-6m">6 Ay Hedef</th>
-            <th class="col-12m">12 Ay Hedef</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Organik Trafik</td>
-            <td class="col-current">386K</td>
-            <td class="col-6m">500K</td>
-            <td class="col-12m">650K</td>
-          </tr>
-          <tr>
-            <td>Top 3 Kelime</td>
-            <td class="col-current">4,848</td>
-            <td class="col-6m">6,000</td>
-            <td class="col-12m">7,500</td>
-          </tr>
-          <tr>
-            <td>Top 10 Kelime</td>
-            <td class="col-current">11,894</td>
-            <td class="col-6m">14,000</td>
-            <td class="col-12m">17,000</td>
-          </tr>
-          <tr>
-            <td>Domain Rating</td>
-            <td class="col-current">52</td>
-            <td class="col-6m">56</td>
-            <td class="col-12m">60+</td>
-          </tr>
-          <tr>
-            <td>Referring Domain</td>
-            <td class="col-current">2,215</td>
-            <td class="col-6m">2,800</td>
-            <td class="col-12m">3,500</td>
-          </tr>
-          <tr>
-            <td>Blog İçerik</td>
-            <td class="col-current">0</td>
-            <td class="col-6m">50+</td>
-            <td class="col-12m">100+</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;" class="animate-4">
-      <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px 20px;box-shadow:0 2px 8px rgba(16,51,47,0.04);flex:1;min-width:160px;text-align:center;">
-        <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#FF7B52;">+68%</div>
-        <div style="font-size:11px;color:#6b7280;margin-top:2px;">Trafik Büyümesi (12 ay)</div>
-      </div>
-      <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px 20px;box-shadow:0 2px 8px rgba(16,51,47,0.04);flex:1;min-width:160px;text-align:center;">
-        <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#10332F;">+54%</div>
-        <div style="font-size:11px;color:#6b7280;margin-top:2px;">Top 3 Kelime Artışı</div>
-      </div>
-      <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px 20px;box-shadow:0 2px 8px rgba(16,51,47,0.04);flex:1;min-width:160px;text-align:center;">
-        <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#254E49;">60+</div>
-        <div style="font-size:11px;color:#6b7280;margin-top:2px;">Hedef Domain Rating</div>
-      </div>
-      <div style="background:#fff;border:1px solid rgba(16,51,47,0.08);border-radius:10px;padding:14px 20px;box-shadow:0 2px 8px rgba(16,51,47,0.04);flex:1;min-width:160px;text-align:center;">
-        <div style="font-size:22px;font-weight:800;font-family:'Bricolage Grotesque',sans-serif;color:#FF7B52;">100+</div>
-        <div style="font-size:11px;color:#6b7280;margin-top:2px;">Blog İçerik Hedefi</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SLIDE 19: NEDEN INBOUND ==================== -->
-<section class="slide" id="slide-19" data-slide="19" style="background:var(--primary);">
-  <div class="slide-inner" style="text-align:center;">
-    <div class="heading-accent-line animate-1" style="margin:0 auto 12px;"></div>
-    <h2 class="slide-heading-light animate-1">Neden Inbound?</h2>
-    <p class="slide-subheading-light animate-2">supplementler.com için doğru SEO ortağı</p>
-    <div class="why-grid animate-3">
-      <div class="why-card">
-        <div class="why-icon">📊</div>
-        <div class="why-title">Veri Odaklı Yaklaşım</div>
-        <div class="why-desc">Her karar, Ahrefs, GSC ve analitik verilerine dayalı. Tahmin değil, kanıt.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🏆</div>
-        <div class="why-title">Sektörel Deneyim</div>
-        <div class="why-desc">E-ticaret ve sağlık/supplement sektöründe kanıtlanmış SEO başarıları.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🔍</div>
-        <div class="why-title">Şeffaf Raporlama</div>
-        <div class="why-desc">Aylık detaylı raporlar, canlı dashboard erişimi ve düzenli strateji toplantıları.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🌱</div>
-        <div class="why-title">Sürdürülebilir Büyüme</div>
-        <div class="why-desc">Kısa vadeli taktikler değil, uzun vadeli organik büyüme modeli.</div>
-      </div>
-      <div class="why-card">
-        <div class="why-icon">🤖</div>
-        <div class="why-title">AI-Ready Strateji</div>
-        <div class="why-desc">ChatGPT, Gemini ve AI Overview için optimize edilmiş içerik yaklaşımı.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== SLIDE 20: KAPANIŞ ==================== -->
-<section class="slide" id="slide-20" data-slide="20" style="background:var(--primary);">
+<!-- ==================== SLIDE 18: KAPANIŞ ==================== -->
+<section class="slide" id="slide-18" data-slide="18" style="background:var(--primary);">
   <div class="geo-circle geo1" style="width:600px;height:600px;background:#FF7B52;bottom:-250px;right:-150px;position:absolute;opacity:.07;border-radius:50%;"></div>
   <div class="geo-ring" style="width:300px;height:300px;border:2px solid #FF7B52;opacity:.08;top:-80px;left:-60px;position:absolute;border-radius:50%;"></div>
   <div class="slide-inner" style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;">
