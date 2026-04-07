@@ -832,12 +832,12 @@ html, body {
   <div class="slide-inner">
     <div class="heading-accent-line animate-1"></div>
     <h2 class="slide-heading-light animate-1">Organik Trafik Trendi</h2>
-    <p class="slide-subheading-light animate-2">Son 13 Ay · Şubat 2025 – Şubat 2026</p>
+    <p class="slide-subheading-light animate-2">Son 13 Ay · Mart 2025 – Mart 2026</p>
     <div class="bar-chart-wrap animate-3">
       <div class="bar-chart" id="traffic-bar-chart"></div>
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-top:10px;">
-        <div style="font-size:12px;color:rgba(255,255,255,0.4);">* Veriler Ahrefs organik trafik tahminine dayanmaktadır</div>
-        <div class="chart-growth-badge">+35% Yıllık Büyüme Trendi &nbsp;↑</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);">* Veriler birinci taraf (GA) oturum verilerine dayanmaktadır</div>
+        <div class="chart-growth-badge" style="background:rgba(239,68,68,0.15);color:#f87171;">-8% YoY Değişim &nbsp;↓</div>
       </div>
     </div>
   </div>
@@ -848,7 +848,7 @@ html, body {
   <div class="slide-inner">
     <div class="heading-accent-line animate-1"></div>
     <h2 class="slide-heading animate-1">Anahtar Kelime Pozisyon Dağılımı</h2>
-    <p class="slide-subheading animate-2">Pozisyon geçmişi · Büyüme analizi</p>
+    <p class="slide-subheading animate-2">Yıllık Değişim (YoY) · Büyüme analizi</p>
     <div class="pos-chart-wrap animate-3">
       <div style="margin-bottom:28px;">
         <div class="pos-series">
@@ -1508,19 +1508,19 @@ html, body {
 (function() {
   // ===== TRAFFIC CHART DATA =====
   const trafficData = [
-    { label: 'Şub 25', value: 290129 },
-    { label: 'Mar 25', value: 313493 },
-    { label: 'Nis 25', value: 388605 },
-    { label: 'May 25', value: 376439 },
-    { label: 'Haz 25', value: 320735 },
-    { label: 'Tem 25', value: 367230 },
-    { label: 'Ağu 25', value: 335060 },
-    { label: 'Eyl 25', value: 319178 },
-    { label: 'Eki 25', value: 285226 },
-    { label: 'Kas 25', value: 360818 },
-    { label: 'Ara 25', value: 346160 },
-    { label: 'Oca 26', value: 379255 },
-    { label: 'Şub 26', value: 392774 }
+    { label: 'Mar 25', value: 3195934 },
+    { label: 'Nis 25', value: 3971063 },
+    { label: 'May 25', value: 3647092 },
+    { label: 'Haz 25', value: 3599680 },
+    { label: 'Tem 25', value: 3898021 },
+    { label: 'Ağu 25', value: 3847488 },
+    { label: 'Eyl 25', value: 3238873 },
+    { label: 'Eki 25', value: 3049105 },
+    { label: 'Kas 25', value: 2927212 },
+    { label: 'Ara 25', value: 2814358 },
+    { label: 'Oca 26', value: 3208808 },
+    { label: 'Şub 26', value: 2783389 },
+    { label: 'Mar 26', value: 2924794 }
   ];
 
   function buildTrafficChart() {
@@ -1534,7 +1534,7 @@ html, body {
       const col = document.createElement('div');
       col.className = 'bar-col';
       const isLast = i === trafficData.length - 1;
-      const formatted = (d.value / 1000).toFixed(0) + 'K';
+      const formatted = (d.value / 1000000).toFixed(1) + 'M';
       col.innerHTML = `
         <div class="bar" style="height:${barH}px;background:${isLast ? '#FF7B52' : 'rgba(255,123,82,0.6)'};${isLast ? 'box-shadow:0 0 16px rgba(255,123,82,0.4);' : ''}">
           <div class="bar-tooltip">${formatted}</div>
